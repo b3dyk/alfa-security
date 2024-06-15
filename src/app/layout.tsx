@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localfont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = localfont({
+  src: "../../public/fonts/montserrat-variablefont.woff2",
+});
 
 export const metadata: Metadata = {
   title: "Alfa Security",
@@ -16,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={montserrat.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
