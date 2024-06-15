@@ -1,9 +1,9 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import css from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={css.main}>
       <h1>Alfa Security</h1>
     </main>
   );
