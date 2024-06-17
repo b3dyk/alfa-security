@@ -1,9 +1,19 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  translate: -50% 0 0;
   display: flex;
   gap: 66px;
   align-items: center;
   padding-top: 4px;
   padding-bottom: 4px;
+}
+
+.headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .link {

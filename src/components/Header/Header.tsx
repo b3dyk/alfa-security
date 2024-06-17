@@ -9,18 +9,20 @@ export default function Header() {
   return (
     <header className={css.header}>
       <Container>
-        <Link href="/" className={css.link}>
-          <Image
-            src="/images/logo-alfa.png"
-            alt="logo Alfa"
-            width={60}
-            height={80}
-          />
-        </Link>
+        <div className={css.headerBox}>
+          <Link href="/" className={css.link}>
+            <Image
+              src="/images/logo-alfa.png"
+              alt="logo Alfa"
+              width={60}
+              height={80}
+            />
+          </Link>
 
-        <Navigation />
+          <Navigation />
 
-        <Contact />
+          <Contact />
+        </div>
       </Container>
     </header>
   );
