@@ -1,6 +1,9 @@
 import Container from "@/components/Container/Container";
 import Image from "next/image";
 import css from "./Hero.module.css";
+import Polygon from "../../../../public/icons/hero-polygon.svg";
+
+import { SOCIALS } from "@/helpers/socials";
 
 export default function Hero() {
   return (
@@ -22,6 +25,20 @@ export default function Hero() {
             </button>
           </div>
         </div>
+        <ul className={css.socialsList}>
+          {SOCIALS.map(({ id, name, component, href }) => {
+            const Icon = component;
+            return (
+              <li key={id} className={css.socialsListItem}>
+                <a className={css.socialsListItemLink} href={href}>
+                  <Icon className={css.socialsListItemIcon} />
+                  <span className={css.socialsListItemText}>{name}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <Polygon className={css.polygon} />
       </Container>
     </section>
   );

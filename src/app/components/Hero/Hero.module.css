@@ -1,4 +1,5 @@
 .heroSection {
+  position: relative;
   padding-top: 282px;
   padding-bottom: 224px;
 }
@@ -49,4 +50,63 @@
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
+}
+
+.socialsList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 38px;
+
+  margin-top: 62px;
+}
+
+.socialsListItem {
+}
+
+.socialsListItemLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+
+  color: #fff;
+
+  transition: color var(--anim);
+}
+
+.socialsListItemLink:hover {
+  color: var(--color-accent);
+}
+
+.socialsListItemLink:hover > .socialsListItemText {
+  bottom: -50%;
+  opacity: 1;
+}
+
+.socialsListItemIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.socialsListItemText {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+
+  translate: -50% 0 0;
+  opacity: 0;
+
+  transition: bottom var(--anim), opacity var(--anim);
+}
+
+.polygon {
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  z-index: -1;
 }
