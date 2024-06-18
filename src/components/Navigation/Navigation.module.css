@@ -9,6 +9,7 @@
 .navListItem {
   padding-top: 16px;
   padding-bottom: 16px;
+  cursor: pointer;
 }
 
 .navListItem:hover > .navListItemLink {
