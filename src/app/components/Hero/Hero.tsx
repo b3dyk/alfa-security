@@ -4,6 +4,8 @@ import css from "./Hero.module.css";
 import Polygon from "../../../../public/icons/hero-polygon.svg";
 
 import { SOCIALS } from "@/helpers/socials";
+import { Icon } from "@/components/Icon/Icon";
+import AuctionCards from "./components/AuctionCards/AuctionCards";
 
 export default function Hero() {
   return (
@@ -21,25 +23,25 @@ export default function Hero() {
             <h1 className={css.title}>ALFA SECURITY</h1>
             <p className={css.moto}>НАШ ДОСВІД - ВАША БЕЗПЕКА</p>
             <button className={css.button} type="button">
-              Замовити послугу
+              Подати заявку
             </button>
           </div>
         </div>
-        <ul className={css.socialsList}>
-          {SOCIALS.map(({ id, name, component, href }) => {
-            const Icon = component;
+        {/* <ul className={css.socialsList}>
+          {SOCIALS.map(({ id, name, href }) => {
             return (
-              <li key={id} className={css.socialsListItem}>
+              <li key={id}>
                 <a className={css.socialsListItemLink} href={href}>
-                  <Icon className={css.socialsListItemIcon} />
+                  <Icon glyph={name} className={css.socialsListItemIcon} />
                   <span className={css.socialsListItemText}>{name}</span>
                 </a>
               </li>
             );
           })}
-        </ul>
-        <Polygon className={css.polygon} />
+        </ul> */}
+        <Icon glyph="heroPolygon" className={css.polygon} />
       </Container>
+      <AuctionCards />
     </section>
   );
 }
