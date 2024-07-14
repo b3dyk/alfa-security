@@ -1,0 +1,62 @@
+.auctionSlider {
+  position: absolute;
+  left: 50%;
+  bottom: -106px;
+  translate: -50% 0 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cardList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 1180px;
+  overflow: hidden;
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  padding-top: 62px;
+  padding-bottom: 62px;
+  padding-right: 80px;
+  padding-left: 52px;
+
+  background: var(--color-background);
+}
+
+.cardImage {
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 262px;
+}
+
+.button {
+  composes: button from "../../../../../components/Contact/Contact.module.css";
+  color: var(--color-text-main);
+  background: var(--color-accent);
+}
+
+.buttonRight {
+  composes: button;
+  rotate: 90deg;
+}
+
+.buttonLeft {
+  composes: button;
+  rotate: 270deg;
+}
