@@ -1,12 +1,40 @@
-import Image from "next/image";
-import css from "./Contacr.module.css";
+"use client";
+
+import { useState } from "react";
+import css from "./Contact.module.css";
+import { Icon } from "../Icon/Icon";
+import { PHONES } from "@/helpers/phones";
+import clsx from "clsx";
 
 export default function Contact() {
+  const [hidden, setHidden] = useState(true);
+
+  const listClasses = clsx(css.list, hidden && css.hidden);
+
+  const handleClick = () => {
+    setHidden((p) => !p);
+  };
+
   return (
     <div className={css.contactWrapper}>
-      <Image src="/icons/call.svg" alt="phone icon" width={24} height={24} />
-      <span className={css.number}>+38 (050) 077 78 43</span>
-      <Image src="/icons/arrow.svg" alt="arrow icon" width={24} height={24} />
+      <Icon glyph="call" />
+      <div className={css.numberWrapper}>
+        <a className={css.number} href="tel:+380500777843">
+          +38 (050) 077 78 43
+        </a>
+        <ul className={listClasses}>
+          {PHONES.slice(1, PHONES.length).map(({ id, phone, href }) => (
+            <li key={id} className={css.item}>
+              <a className={css.number} href={`tel:${href}`}>
+                {phone}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <button type="button" className={css.button} onClick={handleClick}>
+        <Icon glyph="arrow" />
+      </button>
     </div>
   );
 }
