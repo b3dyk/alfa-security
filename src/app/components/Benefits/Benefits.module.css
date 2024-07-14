@@ -1,0 +1,66 @@
+.section {
+  position: relative;
+  padding-top: 256px;
+  padding-bottom: 160px;
+  /* background: linear-gradient(
+    8deg,
+    var(--color-background-gradient) 25%,
+    var(--color-background-light) 23%
+  ); */
+  background: var(--color-background-light);
+}
+
+.bgLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50% 0;
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(5px);
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 80px;
+  padding-right: 80px;
+  z-index: 2;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-basis: calc((100% - 2 * 91px) / 3);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 50px;
+  color: var(--color-accent);
+}
+
+.text {
+  font-size: 32px;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text-black);
+  text-align: center;
+}
+
+.polygon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
