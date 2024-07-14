@@ -1,6 +1,10 @@
 :root {
   --color-background: #282828;
+  --color-background-light: #ababab;
+  --color-background-gradient: #939393;
   --color-text-main: #fff;
+  --color-text-black: #121212;
+  --color-icon: #bebebe;
   --color-accent: #d9250f;
   --color-accent-secondary: #f77700;
 
@@ -219,6 +223,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**

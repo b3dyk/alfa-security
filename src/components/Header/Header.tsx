@@ -8,22 +8,20 @@ import Container from "../Container/Container";
 export default function Header() {
   return (
     <header className={css.header}>
-      <Container>
-        <div className={css.headerBox}>
-          <Link href="/" className={css.link}>
-            <Image
-              src="/images/logo-alfa.png"
-              alt="logo Alfa"
-              width={60}
-              height={80}
-            />
-          </Link>
+      <div className={css.container}>
+        <Link href="/" className={css.link}>
+          <Image
+            src="/images/logo-alfa.png"
+            alt="logo Alfa"
+            width={60}
+            height={80}
+          />
+        </Link>
 
-          <Navigation />
+        <Navigation />
 
-          <Contact />
-        </div>
-      </Container>
+        <Contact />
+      </div>
     </header>
   );
 }

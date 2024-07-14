@@ -9,9 +9,12 @@
   padding-top: 4px;
   padding-bottom: 4px;
   z-index: 100;
+  width: 100%;
+  background-color: var(--color-background);
 }
 
-.headerBox {
+.container {
+  composes: container from "../Container/Container.module.css";
   display: flex;
   align-items: center;
   justify-content: space-between;

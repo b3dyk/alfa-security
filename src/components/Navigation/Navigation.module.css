@@ -13,7 +13,7 @@
 }
 
 .navListItem:hover > .navListItemLink {
-  color: var(--color-accent-secondary);
+  color: var(--color-accent);
 }
 
 .navListItemLink {
