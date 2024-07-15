@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 import css from "./Contact.module.css";
 import { Icon } from "../Icon/Icon";
 import { PHONES } from "@/helpers/phones";
-import clsx from "clsx";
 
 export default function Contact() {
   const [hidden, setHidden] = useState(true);
@@ -25,7 +25,7 @@ export default function Contact() {
         <ul className={listClasses}>
           {PHONES.slice(1, PHONES.length).map(({ id, phone, href }) => (
             <li key={id} className={css.item}>
-              <a className={css.number} href={`tel:${href}`}>
+              <a className={css.number} href={href}>
                 {phone}
               </a>
             </li>
