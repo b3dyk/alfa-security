@@ -6,6 +6,7 @@ import Polygon from "../../../../public/icons/hero-polygon.svg";
 import { SOCIALS } from "@/helpers/socials";
 import { Icon } from "@/components/Icon/Icon";
 import AuctionCards from "./components/AuctionCards/AuctionCards";
+import Button from "@/components/Button/Button";
 
 export default function Hero() {
   return (
@@ -22,9 +23,7 @@ export default function Hero() {
             <h2 className={css.subtitle}>ОХОРОННА КОМПАНІЯ</h2>
             <h1 className={css.title}>ALFA SECURITY</h1>
             <p className={css.moto}>НАШ ДОСВІД - ВАША БЕЗПЕКА</p>
-            <button className={css.button} type="button">
-              Подати заявку
-            </button>
+            <Button type="button">Подати заявку</Button>
           </div>
         </div>
         {/* <ul className={css.socialsList}>

@@ -1,5 +1,6 @@
 .heroSection {
   position: relative;
+
   padding-top: 282px;
   padding-bottom: 484px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -10,34 +11,24 @@
 }
 
 .heroWrapper {
+  position: relative;
+
   display: flex;
-  align-items: center;
-  gap: 160px;
+  gap: 80px;
 }
 
 .textWrapper {
   position: relative;
 }
 
-.textWrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -80px;
-  bottom: 0;
-  width: 4px;
-  background: var(--color-accent);
-}
-
 .subtitle {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 32px;
 }
 
 .title {
   font-weight: 700;
   font-size: 88px;
-  color: var(--color-accent);
 }
 
 .moto {
@@ -45,10 +36,10 @@
   margin-bottom: 74px;
   font-weight: 400;
   font-size: 24px;
+  letter-spacing: 2px;
 }
 
 /* .button {
-  margin-top: 74px;
   border: 2px solid var(--color-accent);
   background-color: transparent;
   color: var(--color-text-main);
@@ -123,8 +114,8 @@
 
 .polygon {
   position: absolute;
-  right: 0;
-  bottom: 250px;
+  right: -40px;
+  top: 50px;
 
   z-index: 0;
 }
