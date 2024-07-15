@@ -1,0 +1,60 @@
+.section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+.polygon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.formWrapper {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 40px 80px;
+
+  width: 960px;
+  background: var(--color-background-dark);
+}
+
+.contactsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+
+  padding: 74px 37px;
+}
+
+.logo {
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactLink {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  font-weight: 500;
+  font-size: 20px;
+
+  transition: color var(--anim);
+}
+
+.contactLink:is(:hover, :focus) {
+  color: var(--color-accent);
+}
