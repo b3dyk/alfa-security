@@ -46,10 +46,10 @@ export default function Footer() {
             Подати заявку
           </Button>
         </div>
-      </div>
-      <div className={css.copyright}>
-        <span>&copy;Alfa Security 2024. All rights reserved.</span>
-        <span>Developed by Oleksandr Perlov and Artur Yushkov</span>
+        <div className={css.copyright}>
+          <span>&copy;Alfa Security 2024. All rights reserved.</span>
+          <span>Developed by Oleksandr Perlov and Artur Yushkov</span>
+        </div>
       </div>
     </footer>
   );

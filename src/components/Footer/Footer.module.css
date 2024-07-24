@@ -95,7 +95,6 @@
 }
 
 .copyright {
-  composes: container from "../Container/Container.module.css";
   grid-area: copyright;
   display: flex;
   align-items: center;
