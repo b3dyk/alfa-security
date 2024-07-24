@@ -67,7 +67,7 @@
 }
 
 .routeLink {
-  display: block;
+  display: inline-block;
   text-transform: uppercase;
 
   transition: color var(--anim);
