@@ -1,5 +1,9 @@
 .footer {
   padding-top: 90px;
+  background: linear-gradient(
+    var(--color-background) 92%,
+    var(--color-text-black) 8%
+  );
 }
 
 .container {
@@ -98,7 +102,6 @@
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  background: var(--color-text-black);
   color: var(--color-background-gradient);
 
   font-weight: 400;
