@@ -39,28 +39,6 @@
   letter-spacing: 2px;
 }
 
-/* .button {
-  border: 2px solid var(--color-accent);
-  background-color: transparent;
-  color: var(--color-text-main);
-  padding: 16px 32px;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  transition: background-color var(--anim);
-}
-
-.button:hover,
-.button:focus {
-  background-color: var(--color-accent);
-}
-
-.button:active {
-  scale: 0.98;
-} */
-
 .socialsList {
   display: flex;
   align-items: center;
@@ -116,6 +94,7 @@
   position: absolute;
   right: -40px;
   top: 50px;
+  opacity: 0.5;
 
   z-index: 0;
 }
