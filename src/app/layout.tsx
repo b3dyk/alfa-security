@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localfont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const montserrat = localfont({
   src: "../../public/fonts/montserrat-variablefont.woff2",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={montserrat.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

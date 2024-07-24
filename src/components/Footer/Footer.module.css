@@ -1,0 +1,106 @@
+.footer {
+  padding-top: 90px;
+}
+
+.container {
+  composes: container from "../Container/Container.module.css";
+  display: grid;
+  grid-template-areas:
+    "contacts   info"
+    "copyright   copyright";
+  gap: 96px 168px;
+}
+
+.contacts {
+  grid-area: contacts;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.mail {
+  font-weight: 400;
+  font-size: 16px;
+
+  transition: color var(--anim);
+}
+
+.mail:hover {
+  color: var(--color-accent);
+}
+
+.info {
+  position: relative;
+  grid-area: info;
+}
+
+.info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -40px;
+  width: 4px;
+  background: var(--color-accent);
+}
+
+.mainList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.routeLink {
+  display: block;
+  text-transform: uppercase;
+
+  transition: color var(--anim);
+}
+
+.routeLink:hover {
+  color: var(--color-accent);
+}
+
+.embededList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.footerBtn {
+  composes: button from "../Button/Button.module.css";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.copyright {
+  composes: container from "../Container/Container.module.css";
+  grid-area: copyright;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: var(--color-text-black);
+  color: var(--color-background-gradient);
+
+  font-weight: 400;
+  font-size: 16px;
+}
