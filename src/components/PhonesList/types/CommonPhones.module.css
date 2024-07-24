@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+}
+
+.number {
+  display: block;
+  padding: 8px 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.21875;
+  color: var(--color-text-main);
+
+  transition: color var(--anim);
+}
+
+.number:hover {
+  color: var(--color-accent);
+}

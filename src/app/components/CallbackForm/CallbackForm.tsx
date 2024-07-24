@@ -1,9 +1,9 @@
 import Container from "@/components/Container/Container";
 import Form from "./components/Form/Form";
 import Image from "next/image";
-import { PHONES } from "@/helpers/phones";
 import { Icon } from "@/components/Icon/Icon";
 import css from "./CallbackForm.module.css";
+import PhonesList from "@/components/PhonesList/PhonesList";
 
 export default function CallbackForm() {
   return (
@@ -20,15 +20,7 @@ export default function CallbackForm() {
               height={100}
               className={css.logo}
             />
-            <ul className={css.list}>
-              {PHONES.map(({ id, phone, href }) => (
-                <li key={id}>
-                  <a className={css.contactLink} href={href}>
-                    {phone}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <PhonesList type="full" />
           </div>
         </div>
       </Container>
