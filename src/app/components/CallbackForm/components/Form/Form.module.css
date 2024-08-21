@@ -1,18 +1,24 @@
 .form {
   --gap: 32px;
   position: relative;
-  width: 450px;
+  width: 100%;
   text-align: center;
+
+  @media screen and (min-width: 1260px) {
+    width: 450px;
+  }
 }
 
-.form::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: -40px;
-  width: 4px;
-  background: var(--color-accent);
+@media screen and (min-width: 1260px) {
+  .form::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -40px;
+    width: 4px;
+    background: var(--color-accent);
+  }
 }
 
 .formGroup {
@@ -21,6 +27,8 @@
   gap: var(--gap);
   margin-bottom: var(--gap);
   text-align: left;
+
+  text-align: center;
 }
 
 .formTitle {
@@ -31,6 +39,7 @@
 .formDesc {
   font-weight: 400;
   font-size: 16px;
+  padding: 16px;
 }
 
 .input {

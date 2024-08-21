@@ -1,23 +1,39 @@
 .auctionSlider {
+  --gap: 20px;
+  --width: 353px;
   position: absolute;
   left: 50%;
-  bottom: -106px;
+  bottom: -75px;
   translate: -50% 0 0;
   z-index: 10;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 4px;
+
+  @media screen and (min-width: 1260px) {
+    --width: 584px;
+    bottom: -106px;
+    gap: 16px;
+  }
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  width: 353px;
+
+  @media screen and (min-width: 1260px) {
+    width: 1180px;
+  }
 }
 
 .cardList {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--gap);
 
-  width: 1180px;
-  overflow: hidden;
+  transition: translate var(--anim);
 }
 
 .cardItem {
@@ -26,16 +42,30 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  width: var(--width);
 
-  padding-top: 62px;
-  padding-bottom: 62px;
-  padding-right: 80px;
-  padding-left: 52px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
 
   background: var(--color-background);
+  @media screen and (min-width: 1260px) {
+    padding-top: 62px;
+    padding-bottom: 62px;
+    padding-right: 80px;
+    padding-left: 52px;
+  }
 }
 
 .cardImage {
+  width: 100px;
+  height: 130px;
+
+  @media screen and (min-width: 1260px) {
+    width: 150px;
+    height: 195px;
+  }
 }
 
 .textWrapper {
@@ -45,18 +75,39 @@
   width: 262px;
 }
 
+.cardTitle {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.cardDescription {
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .button {
   composes: button from "../../../../../components/Contact/Contact.module.css";
   color: var(--color-text-main);
   background: var(--color-accent);
+  position: absolute;
+  top: 50%;
+  translate: 0 -50% 0;
+
+  @media screen and (min-width: 1260px) {
+    position: static;
+  }
 }
 
 .buttonRight {
   composes: button;
-  rotate: 90deg;
+  rotate: 270deg;
+  right: -15px;
+  z-index: 10;
 }
 
 .buttonLeft {
   composes: button;
-  rotate: 270deg;
+  rotate: 90deg;
+  left: -15px;
+  z-index: 10;
 }

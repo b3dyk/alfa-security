@@ -6,18 +6,44 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 40px;
+
+  @media screen and (min-width: 1260px) {
+    gap: 80px;
+  }
 }
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 80px;
+
+  padding-left: 16px;
+
+  @media screen and (min-width: 1260px) {
+    padding-left: 0;
+  }
 }
 
 .icon {
-  flex-shrink: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  translate: -50% -50% 0;
   color: var(--color-icon);
+  opacity: 0.3;
+
+  @media screen and (min-width: 1260px) {
+    position: static;
+
+    translate: 0 0 0;
+    flex-shrink: 0;
+    opacity: 1;
+
+    width: 64px;
+    height: 64px;
+  }
 }
 
 .textWrapper {
@@ -27,30 +53,52 @@
 .textWrapper::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 40px;
   bottom: 0;
-  left: -40px;
+  left: -16px;
   width: 4px;
   background: var(--color-accent);
 }
 
+@media screen and (min-width: 1260px) {
+  .textWrapper::before {
+    top: 0;
+    left: -40px;
+  }
+}
+
 .title {
-  font-weight: 700;
-  font-size: 32px;
+  font-weight: 600;
+  font-size: 20px;
   color: var(--color-accent);
-  letter-spacing: 3px;
+
+  @media screen and (min-width: 1260px) {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
 }
 
 .subtitle {
-  padding-top: 24px;
+  padding-top: 20px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 16px;
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 24px;
+    font-size: 24px;
+  }
 }
 
 .text {
-  padding-top: 32px;
+  padding-top: 24px;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 1px;
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 32px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
 }

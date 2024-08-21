@@ -1,13 +1,20 @@
 .heroSection {
   position: relative;
 
-  padding-top: 282px;
-  padding-bottom: 484px;
+  padding-top: 160px;
+  padding-bottom: 390px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/images/hero-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 282px;
+    padding-bottom: 484px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/images/hero-bg.jpg");
+  }
 }
 
 .heroWrapper {
@@ -15,6 +22,12 @@
 
   display: flex;
   gap: 80px;
+
+  text-align: center;
+
+  @media screen and (min-width: 1260px) {
+    text-align: start;
+  }
 }
 
 .textWrapper {
@@ -22,21 +35,40 @@
 }
 
 .subtitle {
-  font-weight: 500;
-  font-size: 32px;
+  font-weight: 600;
+  font-size: 16px;
+
+  @media screen and (min-width: 1260px) {
+    font-weight: 500;
+    font-size: 32px;
+  }
 }
 
 .title {
   font-weight: 700;
   font-size: 88px;
+  color: var(--color-accent);
+}
+
+.mobileLogo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .moto {
-  margin-top: 24px;
-  margin-bottom: 74px;
+  margin-bottom: 40px;
   font-weight: 400;
-  font-size: 24px;
-  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1260px) {
+    margin-top: 24px;
+    margin-bottom: 74px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
 }
 
 .socialsList {
@@ -92,9 +124,14 @@
 
 .polygon {
   position: absolute;
-  right: -40px;
-  top: 50px;
+  right: -180px;
+  top: 290px;
   opacity: 0.5;
 
   z-index: 0;
+
+  @media screen and (min-width: 1260px) {
+    right: -40px;
+    top: 50px;
+  }
 }

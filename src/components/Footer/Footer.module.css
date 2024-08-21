@@ -10,9 +10,17 @@
   composes: container from "../Container/Container.module.css";
   display: grid;
   grid-template-areas:
-    "contacts   info"
-    "copyright   copyright";
+    "contacts"
+    "info"
+    "copyright";
   gap: 96px 168px;
+
+  @media screen and (min-width: 1260px) {
+    grid-template-areas:
+      "contacts   info"
+      "copyright   copyright";
+    gap: 96px 168px;
+  }
 }
 
 .contacts {
@@ -25,10 +33,14 @@
 .address {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+
+  @media screen and (min-width: 1260px) {
+    gap: 32px;
+  }
 }
 
 .mail {
@@ -50,11 +62,23 @@
 .info::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -40px;
-  width: 4px;
+  top: -28px;
+  left: 0;
+  right: 0;
+  height: 2px;
   background: var(--color-accent);
+}
+
+@media screen and (min-width: 1260px) {
+  .info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -40px;
+    width: 4px;
+    height: 100%;
+  }
 }
 
 .mainList {
@@ -80,11 +104,15 @@
 .embededList {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   margin-top: 8px;
 
   font-weight: 400;
   font-size: 16px;
+
+  @media screen and (min-width: 1260px) {
+    gap: 4px;
+  }
 }
 
 .footerBtn {
@@ -97,12 +125,22 @@
 .copyright {
   grid-area: copyright;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
+  flex-direction: column;
+  gap: 16px;
+
+  padding-top: 20px;
   padding-bottom: 16px;
   color: var(--color-background-gradient);
 
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 16px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    font-weight: 400;
+    font-size: 16px;
+  }
 }

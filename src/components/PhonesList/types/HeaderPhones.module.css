@@ -46,6 +46,8 @@
 
 .number {
   composes: number from "./CommonPhones.module.css";
+  padding-left: 8px;
+  padding-right: 8px;
   font-weight: 400;
   font-size: 16px;
 }

@@ -4,13 +4,15 @@ import { useState } from "react";
 import css from "./Contact.module.css";
 import { Icon } from "../Icon/Icon";
 import PhonesList from "../PhonesList/PhonesList";
+import { useResize } from "@/hooks/useResize";
 
 export default function Contact() {
   const [hidden, setHidden] = useState(true);
+  const { isScreenMobile } = useResize();
 
   return (
     <div className={css.contactWrapper}>
-      <Icon glyph="call" />
+      {!isScreenMobile && <Icon glyph="call" />}
       <div className={css.numberWrapper}>
         <a className={css.number} href="tel:+380500777843">
           +38 (050) 077 78 43
