@@ -12,6 +12,7 @@ import Headset from "./headset.svg";
 import Time from "./time.svg";
 import Tool from "./tool.svg";
 import Arrow from "./arrow.svg";
+import Line from "./line.svg";
 
 export type IconsType = {
   [key: string]: SVGSVGElement;
@@ -32,6 +33,7 @@ const icons = {
   time: Time,
   tool: Tool,
   arrow: Arrow,
+  line: Line,
 };
 
 export default icons;
