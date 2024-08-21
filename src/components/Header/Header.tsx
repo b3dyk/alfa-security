@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useResize();
+  const { isScreenDesktop } = useResize();
 
   const handleMenu = () => {
     setIsMenuOpen((p) => !p);
