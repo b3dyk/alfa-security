@@ -8,6 +8,7 @@ import Contact from "../Contact/Contact";
 import { useResize } from "@/hooks/useResize";
 import IconButton from "../IconButton/IconButton";
 import { useState } from "react";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,26 +19,29 @@ export default function Header() {
   };
 
   return (
-    <header className={css.header}>
-      <div className={css.container}>
-        <Link href="/" className={css.link}>
-          <Image
-            src="/images/logo-alfa.png"
-            alt="logo Alfa"
-            width={60}
-            height={80}
-            className={css.headerLogo}
-          />
-        </Link>
+    <>
+      <header className={css.header}>
+        <div className={css.container}>
+          <Link href="/" className={css.link}>
+            <Image
+              src="/images/logo-alfa.png"
+              alt="logo Alfa"
+              width={60}
+              height={80}
+              className={css.headerLogo}
+            />
+          </Link>
 
-        {isScreenDesktop && <Navigation />}
+          {isScreenDesktop && <Navigation type="header" />}
 
-        <Contact />
+          <Contact />
 
-        {!isScreenDesktop && (
-          <IconButton glyph="line" onClick={handleMenu} open={isMenuOpen} />
-        )}
-      </div>
-    </header>
+          {!isScreenDesktop && (
+            <IconButton glyph="line" onClick={handleMenu} open={isMenuOpen} />
+          )}
+        </div>
+      </header>
+      <MobileMenu isOpen={isMenuOpen} />
+    </>
   );
 }

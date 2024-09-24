@@ -1,8 +1,14 @@
 import Link from "next/link";
-import css from "./Navigation.module.css";
 import ROUTES from "@/helpers/routes";
+import { styles } from "./Navigation.styles";
 
-export default function Navigation() {
+interface INavigation {
+  type: keyof typeof styles;
+}
+
+export default function Navigation({ type }: INavigation) {
+  const css = styles[type];
+
   return (
     <nav>
       <ul className={css.navList}>

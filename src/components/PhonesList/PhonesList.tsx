@@ -7,7 +7,7 @@ interface IPhonesList {
 }
 
 export default function PhonesList({ type, hidden }: IPhonesList) {
-  const phones = type === "full" ? PHONES : PHONES.slice(1, PHONES.length);
+  const phones = type === "header" ? PHONES.slice(1, PHONES.length) : PHONES;
   const css = styles[type];
 
   return (

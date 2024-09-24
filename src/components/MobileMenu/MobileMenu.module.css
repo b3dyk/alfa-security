@@ -1,0 +1,61 @@
+.overlay {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--color-background-dark);
+  translate: 100% 0 0;
+
+  padding-top: 48px;
+
+  transition: translate var(--anim);
+}
+
+.overlay.isOpen {
+  z-index: 99;
+  translate: 0 0 0;
+  transition: translate var(--anim);
+}
+
+.homeLink {
+  display: block;
+  font-weight: 700;
+  font-size: 24px;
+  padding-left: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.homeLinkAccent {
+  color: var(--color-accent);
+}
+
+.contactsWrapper {
+  display: grid;
+  grid-template-areas:
+    "phoneIcon  phones"
+    "mailIcon  mail";
+  grid-template-columns: 24px auto;
+  gap: 16px;
+  padding-top: 40px;
+  padding-left: 16px;
+}
+
+.phoneIcon {
+  grid-area: phoneIcon;
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
+}
+
+.mailIcon {
+  grid-area: mailIcon;
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
+}
+
+.mail {
+  grid-area: mail;
+  font-weight: 400;
+  font-size: 16px;
+}
