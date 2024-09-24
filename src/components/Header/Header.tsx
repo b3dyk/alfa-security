@@ -21,12 +21,12 @@ export default function Header() {
   useEffect(() => {
     const handleTouchMove = (e: TouchEvent) => e.preventDefault();
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
       document.addEventListener("touchmove", handleTouchMove, {
         passive: false,
       });
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
       document.removeEventListener("touchmove", handleTouchMove);
     }
 
