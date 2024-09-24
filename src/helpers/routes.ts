@@ -1,9 +1,13 @@
+import AboutPage from "@/app/[pageId]/components/AboutPage/AboutPage";
+import DiscountPage from "@/app/[pageId]/components/DiscountPage/DiscountPage";
+
 const ROUTES = [
   {
     id: 1,
     name: "Про нас",
     path: "/about",
     scalable: [],
+    Component: AboutPage,
   },
   {
     id: 2,
@@ -28,6 +32,7 @@ const ROUTES = [
         text: "Моніторинг і охорона рухомих і нерухомих обʼєктів різних форм власності",
       },
     ],
+    Component: DiscountPage,
   },
   {
     id: 3,
@@ -48,12 +53,14 @@ const ROUTES = [
         text: "«Охоронно-пожежна сигналізація»",
       },
     ],
+    Component: DiscountPage,
   },
   {
     id: 4,
     name: "Акції",
     path: "/discounts",
     scalable: [],
+    Component: DiscountPage,
   },
 
   {
@@ -61,6 +68,7 @@ const ROUTES = [
     name: "Контакти",
     path: "/contacts",
     scalable: [],
+    Component: DiscountPage,
   },
 ];
 
