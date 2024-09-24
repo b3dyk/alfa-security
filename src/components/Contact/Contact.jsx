@@ -12,7 +12,7 @@ export default function Contact() {
 
   return (
     <div className={css.contactWrapper}>
-      {!isScreenMobile && <Icon glyph="call" />}
+      {!isScreenMobile && <Icon glyph="call" className={css.icon} />}
       <div className={css.numberWrapper}>
         <a className={css.number} href="tel:+380500777843">
           +38 (050) 077 78 43

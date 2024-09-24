@@ -5,6 +5,11 @@
   color: var(--color-accent);
 }
 
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
 .numberWrapper {
   position: relative;
 }
