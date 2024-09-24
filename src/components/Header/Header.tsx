@@ -7,16 +7,31 @@ import Navigation from "../Navigation/Navigation";
 import Contact from "../Contact/Contact";
 import { useResize } from "@/hooks/useResize";
 import IconButton from "../IconButton/IconButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isScreenDesktop } = useResize();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenu = () => {
     setIsMenuOpen((p) => !p);
   };
+
+  useEffect(() => {
+    const handleTouchMove = (e: TouchEvent) => e.preventDefault();
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
+    } else {
+      document.body.style.overflow = "scroll";
+      document.removeEventListener("touchmove", handleTouchMove);
+    }
+
+    return () => document.removeEventListener("touchmove", handleTouchMove);
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -41,7 +56,7 @@ export default function Header() {
           )}
         </div>
       </header>
-      <MobileMenu isOpen={isMenuOpen} />
+      <MobileMenu isOpen={isMenuOpen} handleMenu={handleMenu} />
     </>
   );
 }

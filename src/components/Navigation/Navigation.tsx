@@ -4,9 +4,10 @@ import { styles } from "./Navigation.styles";
 
 interface INavigation {
   type: keyof typeof styles;
+  handleMenu?: () => void;
 }
 
-export default function Navigation({ type }: INavigation) {
+export default function Navigation({ type, handleMenu }: INavigation) {
   const css = styles[type];
 
   return (
@@ -14,7 +15,11 @@ export default function Navigation({ type }: INavigation) {
       <ul className={css.navList}>
         {ROUTES.map(({ id, name, path }) => (
           <li key={id} className={css.navListItem}>
-            <Link href={path} className={css.navListItemLink}>
+            <Link
+              href={path}
+              className={css.navListItemLink}
+              onClick={handleMenu}
+            >
               {name}
             </Link>
           </li>

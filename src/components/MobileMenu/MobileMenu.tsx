@@ -6,16 +6,17 @@ import { Icon } from "../Icon/Icon";
 
 interface IMobMenu {
   isOpen: boolean;
+  handleMenu: () => void;
 }
 
-export default function MobileMenu({ isOpen }: IMobMenu) {
+export default function MobileMenu({ isOpen, handleMenu }: IMobMenu) {
   return (
     <div className={`${css.overlay} ${isOpen && css.isOpen}`}>
-      <Link href="/" className={css.homeLink}>
+      <Link href="/" className={css.homeLink} onClick={handleMenu}>
         <span className={css.homeLinkAccent}>ALFA</span> SECURITY
       </Link>
 
-      <Navigation type="mobMenu" />
+      <Navigation type="mobMenu" handleMenu={handleMenu} />
 
       <div className={css.contactsWrapper}>
         <Icon glyph="call" className={css.phoneIcon} width={24} height={24} />
