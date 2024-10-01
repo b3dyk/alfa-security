@@ -1,0 +1,14 @@
+.section {
+  composes: section from "../../../../page.module.css";
+}
+
+.title {
+  composes: title from "../../../../page.module.css";
+  margin-bottom: 20px;
+}
+
+/* .card {
+  width: 353px;
+  height: 240px;
+  background-color: var(--color-background-dark);
+} */

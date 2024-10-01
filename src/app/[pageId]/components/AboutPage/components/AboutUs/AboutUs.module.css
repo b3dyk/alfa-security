@@ -1,0 +1,70 @@
+.section {
+  /* composes: section from "../../AboutPage.module.css"; */
+  padding-top: 84px;
+  padding-bottom: 40px;
+
+  @media screen and (min-width: 764px) {
+    padding-top: 168px;
+    padding-bottom: 64px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 168px;
+    padding-bottom: 80px;
+  }
+}
+
+.title {
+  composes: title from "../../../../page.module.css";
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+
+  margin-top: 20px;
+
+  @media screen and (min-width: 764px) {
+    font-size: 24px;
+
+    margin-top: 40px;
+  }
+}
+
+.descWrapper {
+  position: relative;
+  padding-left: 24px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 764px) {
+    margin-top: 40px;
+    letter-spacing: 1px;
+  }
+}
+
+.descWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background-color: var(--color-accent);
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+
+  @media screen and (min-width: 764px) {
+    font-size: 20px;
+  }
+}
+
+.accent {
+  color: var(--color-accent);
+}

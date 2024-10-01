@@ -1,0 +1,12 @@
+.section {
+  composes: section from "../../../../page.module.css";
+}
+
+.title {
+  composes: title from "../../../../page.module.css";
+}
+
+.list {
+  composes: descWrapper from "../AboutUs/AboutUs.module.css";
+  gap: 40px;
+}

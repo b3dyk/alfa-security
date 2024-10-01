@@ -1,16 +1,26 @@
+"use client";
+
+import { useResize } from "@/hooks/useResize";
+import css from "./Gallery.module.css";
+import Container from "@/components/Container/Container";
+
 export default function Gallery() {
+  const { isScreenMobile } = useResize();
+
+  const iterable = isScreenMobile ? Array(1).fill(0) : Array(9).fill(0);
+
   return (
-    <section>
-      <h2>ГАЛЕРЕЯ</h2>
-      <ul>
-        {Array(9)
-          .fill(0)
-          .map((item, idx) => (
-            <li key={idx}>
+    <section className={css.section}>
+      <Container>
+        <h2 className={css.title}>ГАЛЕРЕЯ</h2>
+        <ul>
+          {iterable.map((item, idx) => (
+            <li key={idx} className={css.card}>
               <div></div>
             </li>
           ))}
-      </ul>
+        </ul>
+      </Container>
     </section>
   );
 }
