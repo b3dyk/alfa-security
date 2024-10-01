@@ -17,7 +17,9 @@ export default function CallbackForm() {
       <Container>
         <div className={css.formWrapper}>
           <Form />
-          {!isScreenMobile && (
+          {isScreenMobile ? (
+            <PhonesList type="full" />
+          ) : (
             <div className={css.contactsWrapper}>
               <Image
                 src="/images/logo-alfa-horizontal.png"
