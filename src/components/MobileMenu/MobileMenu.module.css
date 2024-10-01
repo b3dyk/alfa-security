@@ -8,6 +8,10 @@
   padding-top: 48px;
 
   transition: translate var(--anim);
+
+  @media screen and (min-width: 763px) {
+    padding-top: 80px;
+  }
 }
 
 .overlay.isOpen {
@@ -34,10 +38,17 @@
   grid-template-areas:
     "phoneIcon  phones"
     "mailIcon  mail";
-  grid-template-columns: 24px auto;
+  grid-template-columns: 24px 1fr;
   gap: 16px;
   padding-top: 40px;
   padding-left: 16px;
+
+  @media screen and (min-width: 764px) {
+    grid-template-columns: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    width: 260px;
+  }
 }
 
 .phoneIcon {
