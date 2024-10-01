@@ -1,4 +1,7 @@
 .navList {
+  @media screen and (min-width: 764px) {
+    text-align: center;
+  }
 }
 
 .navListItem {
