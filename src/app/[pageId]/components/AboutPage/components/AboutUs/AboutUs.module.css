@@ -1,6 +1,6 @@
 .section {
   /* composes: section from "../../AboutPage.module.css"; */
-  padding-top: 84px;
+  padding-top: 68px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 764px) {
