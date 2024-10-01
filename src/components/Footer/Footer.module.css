@@ -1,7 +1,7 @@
 .footer {
   padding-top: 90px;
   background: linear-gradient(
-    var(--color-background) 92%,
+    var(--color-background-dark) 92%,
     var(--color-text-black) 8%
   );
 }
@@ -20,6 +20,13 @@
       "contacts   info"
       "copyright   copyright";
     gap: 96px 168px;
+  }
+}
+
+.logo {
+  @media screen and (max-width: 763px) {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

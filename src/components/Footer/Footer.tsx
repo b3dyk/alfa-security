@@ -15,6 +15,7 @@ export default function Footer() {
             alt="logo"
             width={200}
             height={100}
+            className={css.logo}
           />
           <address className={css.address}>
             <span>03187, м. Київ</span>
