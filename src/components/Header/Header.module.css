@@ -10,7 +10,12 @@
   padding-bottom: 4px;
   z-index: 100;
   width: 100%;
-  background-color: var(--color-background);
+  background-color: var(--color-background-dark);
+
+  @media screen and (min-width: 764px) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
   @media screen and (min-width: 1260px) {
     gap: 66px;
@@ -27,6 +32,11 @@
 .headerLogo {
   width: 30px;
   height: 40px;
+
+  @media screen and (min-width: 764px) {
+    width: 42px;
+    height: 56px;
+  }
 
   @media screen and (min-width: 1260px) {
     width: 60px;
