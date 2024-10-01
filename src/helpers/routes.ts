@@ -1,6 +1,7 @@
 import AboutPage from "@/app/[pageId]/components/AboutPage/AboutPage";
 import ContactsPage from "@/app/[pageId]/components/ContactsPage/ContactsPage";
 import DiscountPage from "@/app/[pageId]/components/DiscountPage/DiscountPage";
+import PricesPage from "@/app/[pageId]/components/PricesPage/PricesPage";
 
 const ROUTES = [
   {
@@ -54,7 +55,7 @@ const ROUTES = [
         text: "«Охоронно-пожежна сигналізація»",
       },
     ],
-    Component: DiscountPage,
+    Component: PricesPage,
   },
   {
     id: 4,
