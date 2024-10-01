@@ -1,4 +1,5 @@
 import AboutPage from "@/app/[pageId]/components/AboutPage/AboutPage";
+import ContactsPage from "@/app/[pageId]/components/ContactsPage/ContactsPage";
 import DiscountPage from "@/app/[pageId]/components/DiscountPage/DiscountPage";
 
 const ROUTES = [
@@ -68,7 +69,7 @@ const ROUTES = [
     name: "Контакти",
     path: "/contacts",
     scalable: [],
-    Component: DiscountPage,
+    Component: ContactsPage,
   },
 ];
 
