@@ -125,8 +125,14 @@
   border-radius: 50%;
 
   background: var(--color-accent);
+}
 
-  @media screen and (min-width: 1260px) {
+@media screen and (min-width: 1260px) {
+  .innerList::before {
+    width: 4px;
+  }
+
+  .innerItem::before {
     left: -24px;
   }
 }
@@ -136,7 +142,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  max-width: 260px;
+  max-width: 264px;
 
   margin-left: auto;
   margin-right: auto;
@@ -144,7 +150,7 @@
 
   @media screen and (min-width: 764px) {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 540px;
+    max-width: 544px;
     margin-top: 40px;
   }
 

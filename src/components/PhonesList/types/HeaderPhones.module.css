@@ -21,7 +21,7 @@
 
 .item {
   min-width: max-content;
-  background: var(--color-background);
+  background: var(--color-background-dark);
 }
 
 .list.hidden > .item:nth-of-type(1) {
