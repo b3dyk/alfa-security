@@ -7,10 +7,10 @@ export default function ProjectDetailsPage({
 }) {
   return (
     <main>
-      {ROUTES.map(({ id, path, Component }) => {
+      {ROUTES.map(({ id, path, Component, scalable }) => {
         const editedPath = path.split("/").join("");
         if (editedPath !== params.pageId) return;
-        return <Component key={id} />;
+        return <Component key={id} scalable={scalable} />;
       })}
     </main>
   );

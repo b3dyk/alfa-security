@@ -35,8 +35,8 @@ export default function Footer() {
                 </Link>
                 {scalable.length > 0 && (
                   <ul className={css.embededList}>
-                    {scalable.map(({ id, text }) => (
-                      <li key={id}>{text}</li>
+                    {scalable.map(({ id, title }) => (
+                      <li key={id}>{title}</li>
                     ))}
                   </ul>
                 )}
