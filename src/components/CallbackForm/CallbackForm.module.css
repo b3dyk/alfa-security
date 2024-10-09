@@ -4,10 +4,20 @@
   padding-bottom: 40px;
   background-color: var(--color-background-dark);
 
+  @media screen and (min-width: 764px) {
+    background-color: var(--color-background);
+
+    background-image: url(../../../public/icons/polygons/callback-tablet-polygon.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   @media screen and (min-width: 1260px) {
     padding-top: 80px;
     padding-bottom: 120px;
-    background-color: var(--color-background);
+
+    background-image: url(../../../public/icons/callback-polygon.svg);
   }
 }
 
@@ -29,11 +39,16 @@
 
   width: 100%;
 
+  @media screen and (min-width: 764px) {
+    width: 560px;
+    padding: 64px 56px;
+    background: var(--color-background-dark);
+  }
+
   @media screen and (min-width: 1260px) {
     flex-direction: row;
     width: 960px;
     padding: 40px 80px;
-    background: var(--color-background-dark);
   }
 }
 

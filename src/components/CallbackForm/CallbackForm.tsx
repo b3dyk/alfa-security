@@ -13,7 +13,9 @@ export default function CallbackForm() {
 
   return (
     <section className={css.section}>
-      <Icon glyph="callbackPolygon" className={css.polygon} />
+      {!isScreenMobile && (
+        <Icon glyph="callbackPolygon" className={css.polygon} />
+      )}
       <Container>
         <div className={css.formWrapper}>
           <Form />
