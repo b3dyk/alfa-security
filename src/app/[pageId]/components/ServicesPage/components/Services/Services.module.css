@@ -1,0 +1,86 @@
+.section {
+  padding-top: 68px;
+  padding-bottom: 40px;
+
+  background-image: url(../../../../../../../public/icons/polygons/mobile-polygon.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (min-width: 764px) {
+    padding-top: 168px;
+    padding-bottom: 64px;
+
+    background-image: url(../../../../../../../public/icons/polygons/tablet-polygon.svg);
+    background-position: bottom;
+  }
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 168px;
+    padding-bottom: 80px;
+
+    background-image: url(../../../../../../../public/icons/polygons/desktop-polygon.svg);
+  }
+}
+
+.title {
+  composes: title from "../../../../page.module.css";
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  margin-top: 20px;
+}
+
+.item {
+  position: relative;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  display: grid;
+
+  gap: 20px;
+
+  padding-left: 40px;
+
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 764px) {
+    gap: 40px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 120px;
+    font-size: 24px;
+  }
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-accent);
+}
+
+@media screen and (min-width: 764px) {
+  .item::before {
+    width: 4px;
+  }
+}
+
+.item > button {
+  justify-self: end;
+}
