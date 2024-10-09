@@ -20,3 +20,14 @@
 .button:active {
   scale: 0.98;
 }
+
+.buttonSecondary {
+  composes: button;
+  border-color: var(--color-text-main);
+}
+
+.buttonSecondary:hover,
+.buttonSecondary:focus {
+  background-color: var(--color-text-main);
+  color: var(--color-accent);
+}
