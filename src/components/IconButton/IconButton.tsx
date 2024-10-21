@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, CSSProperties } from "react";
 import css from "./IconButton.module.css";
 import { Icon } from "../Icon/Icon";
 import icons from "../../../public/icons";
@@ -17,6 +17,8 @@ export default function IconButton({
   children,
   ...restBtnProps
 }: IconButtonType) {
+  const burgerStyles = open ? css.iconCross : css.iconBurger;
+
   return (
     <button
       className={css.button}
@@ -24,7 +26,7 @@ export default function IconButton({
       onClick={onClick}
       {...restBtnProps}
     >
-      <Icon glyph={glyph} className={open ? css.iconCross : css.iconBurger} />
+      <Icon glyph={glyph} className={glyph === "line" ? burgerStyles : ""} />
     </button>
   );
 }

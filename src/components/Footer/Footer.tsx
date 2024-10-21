@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import PhonesList from "../PhonesList/PhonesList";
 import css from "./Footer.module.css";
 import ROUTES from "@/helpers/routes";
 import Button from "../Button/Button";
+import { useModal } from "@/hooks/useModal";
+import Modal from "../Modal/Modal";
 
 export default function Footer() {
+  const { isOpenModal, toggleModal } = useModal();
   return (
     <footer className={css.footer}>
       <div className={css.container}>
@@ -43,7 +48,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <Button type="button" className={css.footerBtn}>
+          <Button type="button" className={css.footerBtn} onClick={toggleModal}>
             Подати заявку
           </Button>
         </div>
@@ -52,6 +57,7 @@ export default function Footer() {
           <span>Developed by Oleksandr Perlov and Artur Yushkov</span>
         </div>
       </div>
+      {isOpenModal && <Modal toggleModal={toggleModal} />}
     </footer>
   );
 }

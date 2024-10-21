@@ -14,6 +14,7 @@ import Tool from "./tool.svg";
 import Arrow from "./arrow.svg";
 import Line from "./line.svg";
 import Location from "./location.svg";
+import Close from "./close.svg";
 
 export type IconsType = {
   [key: string]: SVGSVGElement;
@@ -36,6 +37,7 @@ const icons = {
   arrow: Arrow,
   line: Line,
   location: Location,
+  close: Close,
 };
 
 export default icons;
