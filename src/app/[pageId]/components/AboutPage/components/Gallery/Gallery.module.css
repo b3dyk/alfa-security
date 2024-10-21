@@ -1,5 +1,12 @@
 .section {
   composes: section from "../../../../page.module.css";
+
+  @media screen and (min-width: 764px) and (max-width: 1259px) {
+    background-image: url(../../../../../../../public/icons/polygons/tablet-polygon.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .title {

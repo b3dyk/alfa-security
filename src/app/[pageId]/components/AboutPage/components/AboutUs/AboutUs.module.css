@@ -3,14 +3,24 @@
   padding-top: 68px;
   padding-bottom: 40px;
 
+  background-image: url(../../../../../../../public/icons/polygons/mobile-polygon.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   @media screen and (min-width: 764px) {
     padding-top: 168px;
     padding-bottom: 64px;
+
+    background-image: url(../../../../../../../public/icons/polygons/tablet-polygon.svg);
   }
 
   @media screen and (min-width: 1260px) {
     padding-top: 168px;
     padding-bottom: 80px;
+
+    background-image: url(../../../../../../../public/icons/polygons/desktop-polygon.svg);
+    background-position: bottom;
   }
 }
 

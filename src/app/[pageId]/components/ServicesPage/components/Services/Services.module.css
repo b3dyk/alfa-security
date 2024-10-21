@@ -12,7 +12,6 @@
     padding-bottom: 64px;
 
     background-image: url(../../../../../../../public/icons/polygons/tablet-polygon.svg);
-    background-position: bottom;
   }
 
   @media screen and (min-width: 1260px) {
@@ -20,6 +19,7 @@
     padding-bottom: 80px;
 
     background-image: url(../../../../../../../public/icons/polygons/desktop-polygon.svg);
+    background-position: bottom;
   }
 }
 

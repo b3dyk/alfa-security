@@ -8,8 +8,11 @@ import { Icon } from "@/components/Icon/Icon";
 import AuctionCards from "../Hero/components/AuctionCards/AuctionCards";
 import Button from "@/components/Button/Button";
 import { useResize } from "@/hooks/useResize";
+import { useModal } from "@/hooks/useModal";
+import Modal from "@/components/Modal/Modal";
 
 export default function HeroNew() {
+  const { isOpenModal, toggleModal, isFinalModal } = useModal();
   const { isScreenMobile, isScreenTablet, isScreenDesktop } = useResize();
   return (
     <section className={css.heroSection}>
@@ -32,7 +35,9 @@ export default function HeroNew() {
             <p className={css.moto}>
               Надійність перевірена роками, безпека гарантована нами
             </p>
-            <Button type="button">Подати заявку</Button>
+            <Button type="button" onClick={toggleModal}>
+              Подати заявку
+            </Button>
           </div>
           {!isScreenMobile && (
             <Image
@@ -46,6 +51,9 @@ export default function HeroNew() {
         </div>
       </Container>
       <AuctionCards />
+      {isOpenModal && (
+        <Modal toggleModal={toggleModal} isFinalModal={isFinalModal} />
+      )}
     </section>
   );
 }
