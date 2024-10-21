@@ -7,10 +7,11 @@
 
   width: 100%;
 
+  background: var(--color-background-dark);
+
   @media screen and (min-width: 764px) {
     width: 560px;
     padding: 64px 56px;
-    background: var(--color-background-dark);
   }
 
   @media screen and (min-width: 1260px) {
