@@ -10,7 +10,7 @@ import { useModal } from "@/hooks/useModal";
 import Modal from "../Modal/Modal";
 
 export default function Footer() {
-  const { isOpenModal, toggleModal } = useModal();
+  const { isOpenModal, toggleModal, isFinalModal } = useModal();
   return (
     <footer className={css.footer}>
       <div className={css.container}>
@@ -57,7 +57,9 @@ export default function Footer() {
           <span>Developed by Oleksandr Perlov and Artur Yushkov</span>
         </div>
       </div>
-      {isOpenModal && <Modal toggleModal={toggleModal} />}
+      {isOpenModal && (
+        <Modal toggleModal={toggleModal} isFinalModal={isFinalModal} />
+      )}
     </footer>
   );
 }
