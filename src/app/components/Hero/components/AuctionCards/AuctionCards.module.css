@@ -1,5 +1,4 @@
 .auctionSlider {
-  --gap: 20px;
   --width: 353px;
   position: absolute;
   left: 50%;
@@ -12,26 +11,33 @@
   justify-content: center;
   gap: 4px;
 
+  @media screen and (min-width: 764px) {
+    --width: 515px;
+    bottom: -106px;
+    gap: 72px;
+  }
   @media screen and (min-width: 1260px) {
     --width: 584px;
-    bottom: -106px;
     gap: 16px;
   }
 }
 
 .carouselWrapper {
   overflow: hidden;
-  width: 353px;
+  width: var(--width);
 
+  @media screen and (min-width: 764px) {
+    width: var(--width);
+  }
   @media screen and (min-width: 1260px) {
     width: 1180px;
+    width: calc(var(--width) * 2 + 12px);
   }
 }
 
 .cardList {
   display: flex;
   align-items: center;
-  gap: var(--gap);
 
   transition: translate var(--anim);
 }
@@ -50,6 +56,14 @@
   padding-left: 30px;
 
   background: var(--color-background);
+
+  @media screen and (min-width: 764px) {
+    padding-top: 32px;
+    padding-bottom: 56px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
   @media screen and (min-width: 1260px) {
     padding-top: 62px;
     padding-bottom: 62px;
@@ -62,7 +76,7 @@
   width: 100px;
   height: 130px;
 
-  @media screen and (min-width: 1260px) {
+  @media screen and (min-width: 764px) {
     width: 150px;
     height: 195px;
   }
@@ -78,11 +92,20 @@
 .cardTitle {
   font-weight: 500;
   font-size: 16px;
+
+  @media screen and (min-width: 764px) {
+    font-weight: 400;
+    font-size: 24px;
+  }
 }
 
 .cardDescription {
   font-weight: 400;
   font-size: 14px;
+
+  @media screen and (min-width: 764px) {
+    font-size: 16px;
+  }
 }
 
 .button {
@@ -93,7 +116,7 @@
   top: 50%;
   translate: 0 -50% 0;
 
-  @media screen and (min-width: 1260px) {
+  @media screen and (min-width: 764px) {
     position: static;
   }
 }
