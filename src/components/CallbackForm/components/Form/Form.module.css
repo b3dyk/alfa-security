@@ -1,10 +1,10 @@
 .form {
-  --gap: 32px;
+  --gap: 20px;
   position: relative;
   width: 100%;
   text-align: center;
 
-  @media screen and (min-width: 764px) and (max-width: 1259px) {
+  @media screen and (min-width: 764px) {
     --gap: 24px;
   }
 
@@ -13,6 +13,7 @@
   }
 
   @media screen and (min-width: 1260px) {
+    --gap: 32px;
     width: 450px;
   }
 }
