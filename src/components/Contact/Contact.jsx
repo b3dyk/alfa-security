@@ -24,7 +24,10 @@ export default function Contact() {
         className={css.button}
         onClick={() => setHidden((p) => !p)}
       >
-        <Icon glyph="arrow" />
+        <Icon
+          glyph="arrow"
+          className={`${css.arrow} ${!hidden ? css.rotated : ""}`}
+        />
       </button>
     </div>
   );
