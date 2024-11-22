@@ -12,14 +12,20 @@
 
 .number {
   display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.21875;
   color: var(--color-text-main);
 
   transition: color var(--anim);
+
+  @media screen and (min-width: 764px) {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .number:hover {

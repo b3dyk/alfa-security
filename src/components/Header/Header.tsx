@@ -18,17 +18,19 @@ export default function Header() {
     <>
       <header className={css.header}>
         <div className={css.container}>
-          <Link href="/" className={css.link}>
-            <Image
-              src="/images/logo-alfa.png"
-              alt="logo Alfa"
-              width={60}
-              height={80}
-              className={css.headerLogo}
-            />
-          </Link>
+          <div className={css.navWrapper}>
+            <Link href="/" className={css.link}>
+              <Image
+                src="/images/logo-alfa.png"
+                alt="logo Alfa"
+                width={60}
+                height={80}
+                className={css.headerLogo}
+              />
+            </Link>
 
-          {isScreenDesktop && <Navigation type="header" />}
+            {isScreenDesktop && <Navigation type="header" />}
+          </div>
 
           <Contact />
 

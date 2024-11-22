@@ -22,3 +22,7 @@
   font-weight: 400;
   font-size: 16px;
 }
+
+.navListItemLink.active {
+  color: var(--color-accent);
+}

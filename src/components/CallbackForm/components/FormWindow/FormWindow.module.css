@@ -22,15 +22,34 @@
 }
 
 .contactsWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
 
-  padding: 74px 37px;
+  @media screen and (min-width: 764px) {
+    margin-top: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 
   @media screen and (min-width: 1260px) {
+    margin-top: 0;
+    padding: 74px 37px;
     gap: 40px;
+  }
+}
+
+@media screen and (min-width: 764px) and (max-width: 1259px) {
+  .contactsWrapper::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -40px;
+    height: 4px;
+    background: var(--color-accent);
   }
 }
 

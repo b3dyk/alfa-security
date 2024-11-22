@@ -29,6 +29,12 @@
   justify-content: space-between;
 }
 
+.navWrapper {
+  display: flex;
+  align-items: center;
+  gap: 66px;
+}
+
 .headerLogo {
   width: 30px;
   height: 40px;

@@ -26,3 +26,7 @@
 
   transition: color var(--anim);
 }
+
+.navListItemLink.active {
+  color: var(--color-accent);
+}

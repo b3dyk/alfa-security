@@ -28,3 +28,13 @@
   cursor: pointer;
   scale: 1;
 }
+
+.arrow {
+  rotate: 0;
+
+  transition: rotate var(--anim);
+}
+
+.arrow.rotated {
+  rotate: 180deg;
+}

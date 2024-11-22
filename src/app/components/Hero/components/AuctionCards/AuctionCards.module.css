@@ -115,10 +115,15 @@
   position: absolute;
   top: 50%;
   translate: 0 -50% 0;
+  scale: 1;
 
   @media screen and (min-width: 764px) {
     position: static;
   }
+}
+
+.button:active {
+  scale: 0.93;
 }
 
 .buttonRight {
