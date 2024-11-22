@@ -1,7 +1,7 @@
 .section {
   position: relative;
-  padding-top: 198px;
-  padding-bottom: 110px;
+  padding-top: 150px;
+  padding-bottom: 90px;
 
   background: var(--color-background-light);
 
@@ -52,13 +52,16 @@
   gap: 4px;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 32px;
   color: var(--color-accent);
+
+  /* @media screen and (min-width: 764px) {
+    font-size: 24px;
+  } */
 
   @media screen and (min-width: 1260px) {
     flex-direction: row;
-    font-weight: 700;
     font-size: 50px;
   }
 }
