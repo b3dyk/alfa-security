@@ -1,6 +1,7 @@
 import AboutPage from "@/app/[pageId]/components/AboutPage/AboutPage";
 import ContactsPage from "@/app/[pageId]/components/ContactsPage/ContactsPage";
 import DiscountPage from "@/app/[pageId]/components/DiscountPage/DiscountPage";
+import EquipmentPage from "@/app/[pageId]/components/EquipmentPage/EquipmentPage";
 import PricesPage from "@/app/[pageId]/components/PricesPage/PricesPage";
 import ServicesPage from "@/app/[pageId]/components/ServicesPage/ServicesPage";
 
@@ -145,6 +146,13 @@ const ROUTES: RoutesType = [
   },
   {
     id: 4,
+    name: "Обладнання",
+    path: "/equipment",
+    scalable: [],
+    Component: EquipmentPage,
+  },
+  {
+    id: 5,
     name: "Акції",
     path: "/discounts",
     scalable: [],
@@ -152,7 +160,7 @@ const ROUTES: RoutesType = [
   },
 
   {
-    id: 5,
+    id: 6,
     name: "Контакти",
     path: "/contacts",
     scalable: [],
