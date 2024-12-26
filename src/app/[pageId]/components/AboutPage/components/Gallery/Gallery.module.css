@@ -32,8 +32,8 @@
   color: var(--color-text-main);
   background: var(--color-accent);
   position: absolute;
-  top: 50%;
-  translate: 0 -50% 0;
+  top: 56%;
+  /* translate: 0 -50% 0; */
   scale: 1;
 }
 
@@ -53,8 +53,4 @@
   rotate: 90deg;
   left: 0;
   z-index: 10;
-}
-
-.image {
-  height: 100%;
 }

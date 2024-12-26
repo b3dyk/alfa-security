@@ -42,13 +42,7 @@ export default function Gallery() {
         <ul ref={sliderRef} className={`keen-slider ${css.cardList}`}>
           {slidesToRender.map(({ src, width, height }) => (
             <li key={src} className={`keen-slider__slide ${css.cardItem}`}>
-              <Image
-                src={src}
-                alt="card item"
-                width={width}
-                height={height}
-                className={css.image}
-              />
+              <Image src={src} alt="card item" width={width} height={height} />
             </li>
           ))}
         </ul>
