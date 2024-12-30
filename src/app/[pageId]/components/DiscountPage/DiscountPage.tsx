@@ -1,9 +1,13 @@
+import CallbackForm from "@/components/CallbackForm/CallbackForm";
 import css from "./DiscountPage.module.css";
+import { PageProps } from "@/helpers/routes";
+import Discounts from "./components/Discounts/Discounts";
 
-export default function DiscountPage() {
+export default function DiscountPage({ scalable }: PageProps) {
   return (
-    <section className={css.section}>
-      <h1 className={css.disclaimer}>Sorry! This page under construction</h1>
-    </section>
+    <>
+      <Discounts scalable={scalable} />
+      <CallbackForm />
+    </>
   );
 }
