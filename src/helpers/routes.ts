@@ -19,6 +19,7 @@ export type RoutesType = {
   id: number;
   name: string;
   path: string;
+  desc: string;
   scalable: Partial<ScalableItem>[];
   Component: React.FC<{ scalable: Partial<ScalableItem>[] }>;
 }[];
@@ -32,6 +33,7 @@ const ROUTES: RoutesType = [
     id: 1,
     name: "Про нас",
     path: "/about",
+    desc: "Сторінка про компанію Alfa Security",
     scalable: [
       {
         id: 1,
@@ -68,6 +70,7 @@ const ROUTES: RoutesType = [
     id: 2,
     name: "Послуги",
     path: "/services",
+    desc: "Сторінка про послуги компанії Alfa Security",
     scalable: [
       { id: 1, title: "Моніторинг рухомих об’єктів" },
       {
@@ -95,6 +98,7 @@ const ROUTES: RoutesType = [
     id: 3,
     name: "Тарифи",
     path: "/prices",
+    desc: "Сторінка про тарифи компанії Alfa Security",
     scalable: [
       {
         id: 1,
@@ -149,6 +153,7 @@ const ROUTES: RoutesType = [
     id: 4,
     name: "Обладнання",
     path: "/equipment",
+    desc: "Сторінка про обладнання, яке продає компанія Alfa Security",
     scalable: [],
     Component: EquipmentPage,
   },
@@ -156,6 +161,7 @@ const ROUTES: RoutesType = [
     id: 5,
     name: "Акції",
     path: "/discounts",
+    desc: "Сторінка про знижки компанії Alfa Security",
     scalable: [
       {
         id: 1,
@@ -195,6 +201,7 @@ const ROUTES: RoutesType = [
     id: 6,
     name: "Контакти",
     path: "/contacts",
+    desc: "Сторінка контактів компанії Alfa Security",
     scalable: [],
     Component: ContactsPage,
   },
