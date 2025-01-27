@@ -10,7 +10,7 @@ import { useResize } from "@/hooks/useResize";
 import ROUTES from "@/helpers/routes";
 
 export default function AuctionCards() {
-  const { isScreenDesktop } = useResize();
+  const { isScreenDesktop, isScreenMobile } = useResize();
 
   const [sliderRef, slider] = useKeenSlider<HTMLUListElement>({
     loop: true,
@@ -39,8 +39,8 @@ export default function AuctionCards() {
               <Image
                 src={src!}
                 alt="auction"
-                width={150}
-                height={195}
+                width={isScreenMobile ? 353 : 580}
+                height={isScreenMobile ? 190 : 318}
                 className={css.cardImage}
               />
             </li>
