@@ -1,4 +1,20 @@
 import ROUTES from "@/helpers/routes";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { pageId: string };
+}): Promise<Metadata> {
+  const id = params.pageId;
+
+  const meta = ROUTES.find(({ path }) => path.split("/").join("") === id);
+
+  return {
+    title: `${meta?.name} - Alfa Security`,
+    description: meta?.desc,
+  };
+}
 
 export default function ProjectDetailsPage({
   params,
