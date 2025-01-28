@@ -38,13 +38,6 @@ export default function Footer() {
                 <Link className={css.routeLink} href={path}>
                   {name}
                 </Link>
-                {name === "Тарифи" && (
-                  <ul className={css.embededList}>
-                    {scalable.map(({ id, title }) => (
-                      <li key={id}>{title}</li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>

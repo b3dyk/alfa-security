@@ -16,9 +16,16 @@ export const metadata: Metadata = {
     title: "Alfa Security",
     images: [
       {
-        url: "https://www.alfa-security.agency/_next/image?url=%2Fimages%2Flogo-alfa-horizontal.png&w=256&q=75",
-        width: 256,
-        height: 75,
+        url: "https://www.alfa-security.agency/_next/image?url=%2Fimages%2Fauction-cards%2Fimage-1.jpg&w=640&q=75",
+        width: 640,
+      },
+      {
+        url: "https://www.alfa-security.agency/_next/image?url=%2Fimages%2Fauction-cards%2Fimage-2.jpg&w=640&q=75",
+        width: 640,
+      },
+      {
+        url: "https://www.alfa-security.agency/_next/image?url=%2Fimages%2Fauction-cards%2Fimage-3.jpg&w=640&q=75",
+        width: 640,
       },
     ],
     url: "https://www.alfa-security.agency/",

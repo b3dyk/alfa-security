@@ -7,13 +7,13 @@ import css from "./HeroNew.module.css";
 import { Icon } from "@/components/Icon/Icon";
 import AuctionCards from "../Hero/components/AuctionCards/AuctionCards";
 import Button from "@/components/Button/Button";
+import Modal from "@/components/Modal/Modal";
 import { useResize } from "@/hooks/useResize";
 import { useModal } from "@/hooks/useModal";
-import Modal from "@/components/Modal/Modal";
 
 export default function HeroNew() {
   const { isOpenModal, toggleModal, isFinalModal } = useModal();
-  const { isScreenMobile, isScreenTablet, isScreenDesktop } = useResize();
+  const { isScreenMobile } = useResize();
   return (
     <section className={css.heroSection}>
       <Container>

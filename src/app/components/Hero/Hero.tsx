@@ -1,46 +1,59 @@
+"use client";
+
 import Container from "@/components/Container/Container";
 import Image from "next/image";
 import css from "./Hero.module.css";
-import Polygon from "../../../../public/icons/hero-polygon.svg";
 
-import { SOCIALS } from "@/helpers/socials";
 import { Icon } from "@/components/Icon/Icon";
-import AuctionCards from "./components/AuctionCards/AuctionCards";
 import Button from "@/components/Button/Button";
+import Modal from "@/components/Modal/Modal";
+import AuctionCards from "./components/AuctionCards/AuctionCards";
+import { useResize } from "@/hooks/useResize";
+import { useModal } from "@/hooks/useModal";
 
 export default function Hero() {
+  const { isOpenModal, toggleModal, isFinalModal } = useModal();
+  const { isScreenMobile } = useResize();
   return (
     <section className={css.heroSection}>
       <Container>
         <div className={css.heroWrapper}>
-          <Image
-            src="/images/logo-alfa.png"
-            alt="Logo Alfa"
-            width={226}
-            height={300}
-          />
           <div className={css.textWrapper}>
             <h2 className={css.subtitle}>ОХОРОННА КОМПАНІЯ</h2>
-            <h1 className={css.title}>ALFA SECURITY</h1>
-            <p className={css.moto}>НАШ ДОСВІД - ВАША БЕЗПЕКА</p>
-            <Button type="button">Подати заявку</Button>
+            {isScreenMobile ? (
+              <Image
+                src="/images/logo-alfa.png"
+                alt="Logo Alfa"
+                width={172}
+                height={228}
+                className={css.mobileLogo}
+              />
+            ) : (
+              <h1 className={css.title}>ALFA SECURITY</h1>
+            )}
+
+            <p className={css.moto}>
+              Надійність перевірена роками, безпека гарантована нами
+            </p>
+            <Button type="button" onClick={toggleModal}>
+              Подати заявку
+            </Button>
           </div>
+          {!isScreenMobile && (
+            <Image
+              src="/images/logo-alfa.png"
+              alt="Logo Alfa"
+              width={170}
+              height={225}
+            />
+          )}
+          <Icon glyph="heroNewPolygon" className={css.polygon} />
         </div>
-        {/* <ul className={css.socialsList}>
-          {SOCIALS.map(({ id, name, href }) => {
-            return (
-              <li key={id}>
-                <a className={css.socialsListItemLink} href={href}>
-                  <Icon glyph={name} className={css.socialsListItemIcon} />
-                  <span className={css.socialsListItemText}>{name}</span>
-                </a>
-              </li>
-            );
-          })}
-        </ul> */}
-        <Icon glyph="heroPolygon" className={css.polygon} />
       </Container>
       <AuctionCards />
+      {isOpenModal && (
+        <Modal toggleModal={toggleModal} isFinalModal={isFinalModal} />
+      )}
     </section>
   );
 }

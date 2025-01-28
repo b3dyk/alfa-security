@@ -1,37 +1,48 @@
 .heroSection {
   position: relative;
-  padding-top: 282px;
-  padding-bottom: 484px;
+
+  padding-top: 160px;
+  padding-bottom: 390px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/images/hero-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (min-width: 1260px) {
+    padding-top: 282px;
+    padding-bottom: 484px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/images/hero-bg.jpg");
+  }
 }
 
 .heroWrapper {
+  position: relative;
+
   display: flex;
-  align-items: center;
-  gap: 160px;
+  gap: 80px;
+
+  text-align: center;
+
+  @media screen and (min-width: 1260px) {
+    text-align: start;
+  }
 }
 
 .textWrapper {
   position: relative;
-}
-
-.textWrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -80px;
-  bottom: 0;
-  width: 4px;
-  background: var(--color-accent);
+  z-index: 1;
 }
 
 .subtitle {
-  font-weight: 700;
-  font-size: 32px;
+  font-weight: 600;
+  font-size: 16px;
+
+  @media screen and (min-width: 1260px) {
+    font-weight: 500;
+    font-size: 32px;
+  }
 }
 
 .title {
@@ -40,35 +51,26 @@
   color: var(--color-accent);
 }
 
-.moto {
-  margin-top: 24px;
-  margin-bottom: 74px;
-  font-weight: 400;
-  font-size: 24px;
+.mobileLogo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
-/* .button {
-  margin-top: 74px;
-  border: 2px solid var(--color-accent);
-  background-color: transparent;
-  color: var(--color-text-main);
-  padding: 16px 32px;
-  font-weight: 700;
+.moto {
+  margin-bottom: 40px;
+  font-weight: 400;
   font-size: 16px;
   text-transform: uppercase;
-  cursor: pointer;
 
-  transition: background-color var(--anim);
+  @media screen and (min-width: 1260px) {
+    margin-top: 24px;
+    margin-bottom: 74px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
 }
-
-.button:hover,
-.button:focus {
-  background-color: var(--color-accent);
-}
-
-.button:active {
-  scale: 0.98;
-} */
 
 .socialsList {
   display: flex;
@@ -123,8 +125,14 @@
 
 .polygon {
   position: absolute;
-  right: 0;
-  bottom: 250px;
+  right: -180px;
+  top: 290px;
+  opacity: 0.5;
 
   z-index: 0;
+
+  @media screen and (min-width: 1260px) {
+    right: -40px;
+    top: 50px;
+  }
 }
