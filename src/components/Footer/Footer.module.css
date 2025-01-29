@@ -1,8 +1,8 @@
 .footer {
   padding-top: 90px;
   background: linear-gradient(
-    var(--color-background-dark) 92%,
-    var(--color-text-black) 8%
+    var(--color-background-dark) 90%,
+    var(--color-text-black) 10%
   );
 }
 
@@ -10,16 +10,16 @@
   composes: container from "../Container/Container.module.css";
   display: grid;
   grid-template-areas:
-    "contacts"
+    "logo"
     "info"
     "copyright";
-  gap: 96px 168px;
+  gap: 40px;
 
-  @media screen and (min-width: 1260px) {
+  @media screen and (min-width: 764px) {
     grid-template-areas:
-      "contacts   info"
+      "logo   info"
       "copyright   copyright";
-    gap: 96px 168px;
+    gap: 40px 100px;
   }
 }
 
@@ -31,39 +31,45 @@
 }
 
 .contacts {
-  grid-area: contacts;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.address {
+  grid-area: logo;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-
-  @media screen and (min-width: 1260px) {
-    gap: 32px;
-  }
-}
-
-.mail {
-  font-weight: 400;
-  font-size: 16px;
-
-  transition: color var(--anim);
-}
-
-.mail:hover {
-  color: var(--color-accent);
 }
 
 .info {
   position: relative;
   grid-area: info;
+  display: grid;
+
+  grid-template-areas:
+    "routes"
+    "address"
+    "mail"
+    "socials"
+    "button";
+  gap: 40px;
+
+  @media screen and (min-width: 764px) {
+    grid-template-areas:
+      "routes  address"
+      "routes  mail"
+      "routes  socials"
+      "routes  button";
+    gap: 20px 50px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    grid-template-areas:
+      "routes  routes  button"
+      "address  mail  socials";
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    gap: 40px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 .info::before {
@@ -76,31 +82,42 @@
   background: var(--color-accent);
 }
 
-@media screen and (min-width: 1260px) {
+@media screen and (min-width: 764px) {
   .info::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -40px;
+    left: -50px;
     width: 4px;
     height: 100%;
   }
 }
 
 .mainList {
+  grid-area: routes;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
 
   font-weight: 500;
   font-size: 16px;
+
+  @media screen and (min-width: 764px) {
+    gap: 27px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
 }
 
 .routeLink {
   display: inline-block;
   text-transform: uppercase;
-
+  white-space: nowrap;
   transition: color var(--anim);
 }
 
@@ -108,25 +125,35 @@
   color: var(--color-accent);
 }
 
-.embededList {
+.address {
+  grid-area: address;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 8px;
-
+  font-style: normal;
   font-weight: 400;
   font-size: 16px;
 
   @media screen and (min-width: 1260px) {
-    gap: 4px;
+    gap: 0;
   }
+}
+
+.mail {
+  grid-area: mail;
+  font-weight: 400;
+  font-size: 16px;
+
+  transition: color var(--anim);
+}
+
+.mail:hover {
+  color: var(--color-accent);
 }
 
 .footerBtn {
   composes: button from "../Button/Button.module.css";
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  grid-area: button;
 }
 
 .copyright {
@@ -142,11 +169,14 @@
   font-weight: 500;
   font-size: 14px;
 
+  @media screen and (min-width: 764px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   @media screen and (min-width: 1260px) {
     padding-top: 16px;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
     font-weight: 400;
     font-size: 16px;
   }

@@ -8,8 +8,11 @@ import ROUTES from "@/helpers/routes";
 import Button from "../Button/Button";
 import { useModal } from "@/hooks/useModal";
 import Modal from "../Modal/Modal";
+import Socials from "../Socials/Socials";
+import { useResize } from "@/hooks/useResize";
 
 export default function Footer() {
+  const { isScreenMobile } = useResize();
   const { isOpenModal, toggleModal, isFinalModal } = useModal();
   return (
     <footer className={css.footer}>
@@ -22,18 +25,11 @@ export default function Footer() {
             height={100}
             className={css.logo}
           />
-          <address className={css.address}>
-            <span>03187, м. Київ</span>
-            <span>вул. Академіка Заболотного, 46, офіс 5</span>
-          </address>
-          <PhonesList type="full" />
-          <a className={css.mail} href="mailto:ohorona.24.7@gmail.com">
-            ohorona.24.7@gmail.com
-          </a>
+          {!isScreenMobile && <PhonesList type="full" />}
         </div>
         <div className={css.info}>
           <ul className={css.mainList}>
-            {ROUTES.map(({ id, name, path, scalable }) => (
+            {ROUTES.map(({ id, name, path }) => (
               <li key={id}>
                 <Link className={css.routeLink} href={path}>
                   {name}
@@ -41,6 +37,17 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
+          <address className={css.address}>
+            <span>03187, м. Київ</span>
+            <span>вул. Академіка Заболотного, 46, офіс 5</span>
+          </address>
+
+          <a className={css.mail} href="mailto:ohorona.24.7@gmail.com">
+            ohorona.24.7@gmail.com
+          </a>
+
+          <Socials />
           <Button type="button" className={css.footerBtn} onClick={toggleModal}>
             Подати заявку
           </Button>

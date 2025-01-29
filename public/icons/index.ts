@@ -2,6 +2,8 @@ import Instagram from "./instagram.svg";
 import Mail from "./mail.svg";
 import Youtube from "./youtube.svg";
 import Facebook from "./facebook.svg";
+import Viber from "./viber.svg";
+import Telegram from "./telegram.svg";
 import HeroPolygon from "./hero-polygon.svg";
 import HeroNewPolygon from "./hero-new-polygon.svg";
 import BenefitsPolygon from "./benefits-polygon.svg";
@@ -25,6 +27,8 @@ const icons = {
   mail: Mail,
   youtube: Youtube,
   facebook: Facebook,
+  telegram: Telegram,
+  viber: Viber,
   heroPolygon: HeroPolygon,
   heroNewPolygon: HeroNewPolygon,
   benefitsPolygon: BenefitsPolygon,

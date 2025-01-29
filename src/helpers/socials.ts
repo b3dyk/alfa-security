@@ -11,22 +11,22 @@ export type SocialsType = SocialType[];
 export const SOCIALS: SocialsType = [
   {
     id: 1,
-    name: "instagram",
-    href: "https://instagram.com",
+    name: "facebook",
+    href: "https://www.facebook.com/profile.php?id=100064320063817&locale=ua_UA",
   },
   {
     id: 2,
-    name: "mail",
-    href: "mailto:instagram.com",
+    name: "telegram",
+    href: "https://t.me/+380674650230",
   },
   {
     id: 3,
-    name: "youtube",
-    href: "https://youtube.com",
+    name: "viber",
+    href: "viber://chat?number=+380674650230",
   },
-  {
-    id: 4,
-    name: "facebook",
-    href: "https://facebook.com",
-  },
+  // {
+  //   id: 4,
+  //   name: "viber",
+  //   href: "https://vb.me/+380674650230",
+  // },
 ];
