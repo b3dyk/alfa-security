@@ -27,25 +27,30 @@
   composes: title from "../../../../page.module.css";
 }
 
+.btnWrapper {
+  margin-top: 40px;
+  text-align: center;
+
+  @media screen and (min-width: 764px) {
+    text-align: end;
+  }
+}
+
 .list {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 40px;
 
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .item {
   position: relative;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   display: grid;
 
   gap: 20px;
 
-  padding-left: 40px;
+  padding-left: 16px;
 
   font-weight: 500;
   font-size: 16px;
@@ -54,6 +59,7 @@
   @media screen and (min-width: 764px) {
     gap: 40px;
     font-size: 20px;
+    padding-left: 28px;
   }
 
   @media screen and (min-width: 1260px) {
@@ -62,6 +68,11 @@
     align-items: flex-start;
     gap: 120px;
     font-size: 24px;
+    letter-spacing: 1px;
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 20px;
   }
 }
 
@@ -79,8 +90,4 @@
   .item::before {
     width: 4px;
   }
-}
-
-.item > button {
-  justify-self: end;
 }

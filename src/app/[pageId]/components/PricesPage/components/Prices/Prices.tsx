@@ -6,8 +6,11 @@ import Button from "@/components/Button/Button";
 import { PageProps } from "@/helpers/routes";
 import { Icon } from "@/components/Icon/Icon";
 import { useResize } from "@/hooks/useResize";
+import { useModal } from "@/hooks/useModal";
+import Modal from "@/components/Modal/Modal";
 
 export default function Prices({ scalable }: PageProps) {
+  const { isOpenModal, openModal, toggleModal } = useModal();
   const { isScreenDesktop } = useResize();
 
   return (
@@ -16,7 +19,9 @@ export default function Prices({ scalable }: PageProps) {
         <h2 className={css.title}>Тарифи</h2>
         <div className={css.buttonWrapper}>
           <Button>СПЛАТИТИ ПОСЛУГУ</Button>
-          <Button main={false}>ПОДАТИ ЗАЯВКУ</Button>
+          <Button main={false} onClick={openModal}>
+            ПОДАТИ ЗАЯВКУ
+          </Button>
         </div>
         <ul className={css.mainList}>
           {scalable.map(({ id, title, specs, icon }) => (
@@ -35,6 +40,9 @@ export default function Prices({ scalable }: PageProps) {
             </li>
           ))}
         </ul>
+        {isOpenModal && (
+          <Modal toggleModal={toggleModal} isFinalModal={false} />
+        )}
       </Container>
     </section>
   );

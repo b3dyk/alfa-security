@@ -2,14 +2,12 @@
   border: 2px solid var(--color-accent);
   background-color: transparent;
   color: var(--color-text-main);
-  padding: 16px 32px;
+  padding: 12px 32px;
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
-
-  min-width: 260px;
 
   transition: background-color var(--anim);
 }
@@ -26,6 +24,7 @@
 .buttonSecondary {
   composes: button;
   border-color: var(--color-text-main);
+  min-width: 252px;
 }
 
 .buttonSecondary:hover,
