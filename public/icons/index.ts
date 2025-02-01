@@ -17,6 +17,10 @@ import Arrow from "./arrow.svg";
 import Line from "./line.svg";
 import Location from "./location.svg";
 import Close from "./close.svg";
+import Alert from "./alert.svg";
+import Shield from "./shield.svg";
+import Beacon from "./beacon.svg";
+import Fire from "./fire.svg";
 
 export type IconsType = {
   [key: string]: SVGSVGElement;
@@ -42,6 +46,10 @@ const icons = {
   line: Line,
   location: Location,
   close: Close,
+  alert: Alert,
+  shield: Shield,
+  beacon: Beacon,
+  fire: Fire,
 };
 
 export default icons;

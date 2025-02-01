@@ -4,13 +4,14 @@ import DiscountPage from "@/app/[pageId]/components/DiscountPage/DiscountPage";
 import EquipmentPage from "@/app/[pageId]/components/EquipmentPage/EquipmentPage";
 import PricesPage from "@/app/[pageId]/components/PricesPage/PricesPage";
 import ServicesPage from "@/app/[pageId]/components/ServicesPage/ServicesPage";
+import icons from "../../public/icons";
 
 export interface ScalableItem {
   id: number;
   title: string;
   text: string;
   subtitle: string;
-  icon: string;
+  icon: keyof typeof icons;
   src: string;
   specs: string[];
 }
@@ -156,6 +157,7 @@ const ROUTES: RoutesType = [
           "виїзд групи реагування",
           "технічна підтримка",
         ],
+        icon: "alert",
       },
       {
         id: 2,
@@ -167,6 +169,7 @@ const ROUTES: RoutesType = [
           "матеріальна відповідальність",
           "технічна підтримка",
         ],
+        icon: "shield",
       },
       {
         id: 3,
@@ -179,6 +182,7 @@ const ROUTES: RoutesType = [
           "матеріальна відповідальність",
           "технічна підтримка",
         ],
+        icon: "beacon",
       },
       {
         id: 4,
@@ -192,6 +196,7 @@ const ROUTES: RoutesType = [
           "інформування про загоряння",
           "виклик служб ДСНС",
         ],
+        icon: "fire",
       },
     ],
     Component: PricesPage,
