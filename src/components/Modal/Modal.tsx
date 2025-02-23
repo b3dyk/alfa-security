@@ -30,7 +30,7 @@ export default function Modal({ toggleModal, isFinalModal }: ModalProps) {
           onClick={toggleModal}
           className={css.iconClose}
         />
-        {isFinalModal ? <p>Final</p> : <FormWindow />}
+        {isFinalModal ? <p>Final</p> : <FormWindow toggleModal={toggleModal} />}
       </div>
     </div>,
     portalRoot
