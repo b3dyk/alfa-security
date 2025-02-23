@@ -5,12 +5,17 @@ import PhonesList from "@/components/PhonesList/PhonesList";
 import { useResize } from "@/hooks/useResize";
 import Form from "../Form/Form";
 import css from "./FormWindow.module.css";
+import FormForm from "../Form/Form";
 
-export default function FormWindow() {
+export default function FormWindow({
+  toggleModal,
+}: {
+  toggleModal: () => void;
+}) {
   const { isScreenMobile } = useResize();
   return (
     <div className={css.formWrapper}>
-      <Form />
+      <FormForm toggleModal={toggleModal} />
       {isScreenMobile ? (
         <PhonesList type="full" />
       ) : (
