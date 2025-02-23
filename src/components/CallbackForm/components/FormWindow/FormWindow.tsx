@@ -10,12 +10,12 @@ import FormForm from "../Form/Form";
 export default function FormWindow({
   toggleModal,
 }: {
-  toggleModal: () => void;
+  toggleModal?: () => void;
 }) {
   const { isScreenMobile } = useResize();
   return (
     <div className={css.formWrapper}>
-      <FormForm toggleModal={toggleModal} />
+      <FormForm toggleModal={toggleModal!} />
       {isScreenMobile ? (
         <PhonesList type="full" />
       ) : (
