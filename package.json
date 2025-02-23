@@ -11,12 +11,14 @@
   "dependencies": {
     "@vercel/speed-insights": "^1.1.0",
     "clsx": "^2.1.1",
+    "formik": "^2.4.6",
     "keen-slider": "^6.8.6",
     "next": "^14.2.23",
     "react": "^18",
     "react-dom": "^18",
     "react-responsive-carousel": "^3.2.23",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
