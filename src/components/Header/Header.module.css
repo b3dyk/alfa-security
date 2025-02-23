@@ -1,24 +1,16 @@
 .header {
   position: fixed;
   top: 0;
-  left: 50%;
-  translate: -50% 0 0;
-  display: flex;
-  gap: 54px;
-  align-items: center;
+  left: 0;
+  right: 0;
   padding-top: 4px;
   padding-bottom: 4px;
   z-index: 100;
-  width: 100%;
   background-color: var(--color-background-dark);
 
   @media screen and (min-width: 764px) {
     padding-top: 12px;
     padding-bottom: 12px;
-  }
-
-  @media screen and (min-width: 1260px) {
-    gap: 66px;
   }
 }
 

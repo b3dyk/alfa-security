@@ -2,20 +2,21 @@ import Container from "@/components/Container/Container";
 import PhonesList from "@/components/PhonesList/PhonesList";
 import css from "./Contacts.module.css";
 import { Icon } from "@/components/Icon/Icon";
-import { PHONES } from "@/helpers/phones";
+import { PageProps } from "@/helpers/routes";
 
-export default function Contacts() {
+export default function Contacts({ scalable }: PageProps) {
   return (
     <section className={css.section}>
       <Container>
         <h2 className={css.title}>КОНТАКТИ</h2>
         <div className={css.contactsWrapper}>
           <div className={css.phonesWrapper}>
+            <Icon glyph="call" className={css.icon} />
+            <h3 className={css.heading}>Телефони</h3>
             <PhonesList type="full" />
-            <ul>
-              {PHONES.map(({ id, provider }) => (
+            <ul className={css.providers}>
+              {scalable.map(({ id, provider }) => (
                 <li key={id} className={css.item}>
-                  <Icon glyph="call" className={css.icon} />
                   <p>{provider}</p>
                 </li>
               ))}

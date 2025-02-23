@@ -1,6 +1,7 @@
 .list {
   display: flex;
   flex-direction: column;
+  grid-area: phones;
 
   /* @media screen and (max-width: 763px) {
     margin-top: 20px;

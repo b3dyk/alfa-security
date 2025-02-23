@@ -13,6 +13,8 @@ export interface ScalableItem {
   subtitle: string;
   icon: keyof typeof icons;
   src: string;
+  phone: string;
+  provider: string;
   specs: string[];
 }
 
@@ -206,7 +208,26 @@ const ROUTES: RoutesType = [
     name: "Контакти",
     path: "/contacts",
     desc: "Сторінка контактів компанії Alfa Security",
-    scalable: [],
+    scalable: [
+      {
+        id: 1,
+        phone: "+38 (050) 077 78 43",
+        src: "tel:+380500777843",
+        provider: "Vodafone",
+      },
+      {
+        id: 2,
+        phone: "+38 (067) 465 02 30",
+        src: "tel:+380674650230",
+        provider: "Kyivstar",
+      },
+      {
+        id: 3,
+        phone: "+38 (093) 843 85 44",
+        src: "tel:+380938438544",
+        provider: "Lifecell",
+      },
+    ],
     Component: ContactsPage,
   },
 ];
