@@ -36,10 +36,8 @@
   margin-top: 20px;
 
   @media screen and (min-width: 764px) {
-    grid-template-columns: 40% 1fr;
-    column-gap: 100px;
-
     margin-top: 40px;
+    gap: 40px;
   }
 
   @media screen and (min-width: 1260px) {
@@ -62,22 +60,21 @@
   font-weight: 600;
   font-size: 20px;
 
-  @media screen and (max-width: 1259px) {
-    grid-column: 1 / -1;
+  @media screen and (min-width: 764px) {
+    grid-template-areas: "icon  title  phones  providers";
+    grid-template-columns: 32px 200px 200px 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1260px) {
+    grid-template-areas:
+      "icon  title  title"
+      "phones  phones  providers";
+    grid-template-columns: 32px 1fr 1fr;
+    gap: var(--gap);
   }
 }
 
-@media screen and (max-width: 763px) {
-  .phonesWrapper::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: -8px;
-    width: 2px;
-    background-color: var(--color-accent);
-  }
-}
 .providers {
   grid-area: providers;
 }
@@ -94,8 +91,8 @@
   font-size: 16px;
 
   @media screen and (min-width: 764px) {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     font-weight: 400;
     font-size: 20px;
@@ -111,6 +108,15 @@
     width: 32px;
     height: 32px;
   }
+  @media screen and (min-width: 764px) and (max-width: 1259px) {
+    margin-top: 10px;
+  }
+}
+
+.heading {
+  @media screen and (min-width: 764px) and (max-width: 1259px) {
+    padding-top: 10px;
+  }
 }
 
 .mailThumb {
@@ -125,31 +131,15 @@
   font-size: 20px;
 
   @media screen and (min-width: 764px) {
+    grid-template-columns: 32px 208px 1fr;
+  }
+
+  @media screen and (min-width: 764px) and (max-width: 1259px) {
+    grid-row: 3/4;
+  }
+
+  @media screen and (min-width: 1260px) {
     grid-template-columns: 32px 1fr;
-  }
-}
-
-@media screen and (max-width: 763px) {
-  .mailThumb::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -8px;
-    width: 2px;
-    background-color: var(--color-accent);
-  }
-}
-
-@media screen and (min-width: 1260px) {
-  .mailThumb::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -32px;
-    width: 4px;
-    background-color: var(--color-accent);
   }
 }
 
@@ -159,6 +149,10 @@
 
   @media screen and (min-width: 764px) {
     font-weight: 400;
+    padding-top: 10px;
+  }
+  @media screen and (min-width: 1260px) {
+    padding-top: 0;
   }
 }
 
@@ -176,28 +170,12 @@
 
   font-weight: 600;
   font-size: 20px;
-}
 
-.addressThumb::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -8px;
-  width: 2px;
-  background-color: var(--color-accent);
-}
-
-@media screen and (min-width: 764px) {
-  .addressThumb::before {
-    left: -50px;
-    width: 4px;
+  @media screen and (min-width: 764px) {
+    grid-template-columns: 32px 208px 1fr;
   }
-}
-
-@media screen and (min-width: 1260px) {
-  .addressThumb::before {
-    left: -32px;
+  @media screen and (min-width: 1260px) {
+    grid-template-columns: 32px 1fr;
   }
 }
 
@@ -213,5 +191,43 @@
   @media screen and (min-width: 764px) {
     font-weight: 400;
     font-size: 20px;
+    grid-column: 3/4;
+  }
+  @media screen and (min-width: 1260px) {
+    grid-column: 1/-1;
+  }
+}
+
+.phonesWrapper::before,
+.mailThumb::before,
+.addressThumb::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -8px;
+  width: 2px;
+  background-color: var(--color-accent);
+}
+
+@media screen and (min-width: 764px) {
+  .phonesWrapper::before,
+  .mailThumb::before,
+  .addressThumb::before {
+    top: 10px;
+    left: -20px;
+    width: 4px;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .addressThumb::before,
+  .mailThumb::before {
+    top: 0;
+    left: -32px;
+  }
+
+  .phonesWrapper::before {
+    display: none;
   }
 }

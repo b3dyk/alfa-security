@@ -63,6 +63,7 @@ export default function FormForm({ toggleModal }: { toggleModal: () => void }) {
                 {/* <span>Телефон</span> */}
                 <Field
                   name="phone"
+                  type="tel"
                   placeholder="Телефон"
                   className={`${css.input} ${
                     errors.phone ? css.errorInput : ""

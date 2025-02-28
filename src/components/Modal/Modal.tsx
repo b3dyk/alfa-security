@@ -23,7 +23,14 @@ export default function Modal({ toggleModal, isFinalModal }: ModalProps) {
   if (!mounted || !portalRoot) return null;
 
   return createPortal(
-    <div className={css.backdrop}>
+    <div
+      className={css.backdrop}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          toggleModal();
+        }
+      }}
+    >
       <div className={css.modal}>
         <IconButton
           glyph="close"

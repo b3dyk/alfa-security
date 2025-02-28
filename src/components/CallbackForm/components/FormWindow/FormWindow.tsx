@@ -3,7 +3,6 @@
 import Image from "next/image";
 import PhonesList from "@/components/PhonesList/PhonesList";
 import { useResize } from "@/hooks/useResize";
-import Form from "../Form/Form";
 import css from "./FormWindow.module.css";
 import FormForm from "../Form/Form";
 
@@ -16,9 +15,7 @@ export default function FormWindow({
   return (
     <div className={css.formWrapper}>
       <FormForm toggleModal={toggleModal!} />
-      {isScreenMobile ? (
-        <PhonesList type="full" />
-      ) : (
+      {!isScreenMobile && (
         <div className={css.contactsWrapper}>
           <Image
             src="/images/logo-alfa-horizontal.png"
