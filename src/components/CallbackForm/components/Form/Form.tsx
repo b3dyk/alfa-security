@@ -26,7 +26,6 @@ export default function FormForm({ toggleModal }: { toggleModal: () => void }) {
       }}
       validationSchema={DisplayingErrorMessagesSchema}
       onSubmit={(values) => {
-        console.log(values);
         toggleModal();
       }}
     >
