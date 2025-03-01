@@ -329,3 +329,8 @@ Add the correct display in Chrome and Safari.
 summary {
   display: list-item;
 }
+
+.highlight {
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
