@@ -18,10 +18,10 @@ export default function FormWindow({
       {!isScreenMobile && (
         <div className={css.contactsWrapper}>
           <Image
-            src="/images/logo-alfa-horizontal.png"
+            src="/images/logo-alfa.png"
             alt="logo"
-            width={200}
-            height={100}
+            width={150}
+            height={200}
             className={css.logo}
           />
           <PhonesList type="full" />
