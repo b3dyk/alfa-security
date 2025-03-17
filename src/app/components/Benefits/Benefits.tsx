@@ -8,6 +8,7 @@ export default function Benefits() {
   return (
     <section className={css.section}>
       <Container>
+        <h2 className={css.sectionTitle}>Наші переваги</h2>
         <Image
           src="/images/logo-alfa.png"
           alt="logo"

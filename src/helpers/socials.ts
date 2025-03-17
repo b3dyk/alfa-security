@@ -24,9 +24,4 @@ export const SOCIALS: SocialsType = [
     name: "viber",
     href: "viber://chat?number=+380674650230",
   },
-  // {
-  //   id: 4,
-  //   name: "viber",
-  //   href: "https://vb.me/+380674650230",
-  // },
 ];

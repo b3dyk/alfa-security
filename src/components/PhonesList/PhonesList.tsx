@@ -1,5 +1,5 @@
-import { PHONES } from "@/helpers/phones";
 import { styles } from "./PhonesList.styles";
+import ROUTES from "@/helpers/routes";
 
 interface IPhonesList {
   type: keyof typeof styles;
@@ -7,14 +7,18 @@ interface IPhonesList {
 }
 
 export default function PhonesList({ type, hidden }: IPhonesList) {
-  const phones = type === "header" ? PHONES.slice(1, PHONES.length) : PHONES;
+  const phonesObj = ROUTES.find(({ name }) => name === "Контакти");
+  const phoneData = phonesObj?.scalable;
+
+  const phones =
+    type === "header" ? phoneData?.slice(1, phoneData?.length) : phoneData;
   const css = styles[type];
 
   return (
     <ul className={`${css.list} ${(hidden && css.hidden) || ""}`}>
-      {phones.map(({ id, phone, href }) => (
+      {phones?.map(({ id, phone, src }) => (
         <li key={id} className={css.item}>
-          <a className={css.number} href={href}>
+          <a className={css.number} href={src}>
             {phone}
           </a>
         </li>

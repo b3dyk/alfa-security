@@ -13,6 +13,10 @@
   }
 }
 
+.sectionTitle {
+  composes: visually-hidden from "../../page.module.css";
+}
+
 .bgLogo {
   position: absolute;
   top: 50%;

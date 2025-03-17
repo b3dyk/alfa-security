@@ -3,6 +3,10 @@
   padding-bottom: 80px;
 }
 
+.sectionTitle {
+  composes: visually-hidden from "../../page.module.css";
+}
+
 .list {
   display: flex;
   flex-direction: column;
