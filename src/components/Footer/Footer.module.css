@@ -75,7 +75,7 @@
 .info::before {
   content: "";
   position: absolute;
-  top: -28px;
+  top: -20px;
   left: 0;
   right: 0;
   height: 2px;

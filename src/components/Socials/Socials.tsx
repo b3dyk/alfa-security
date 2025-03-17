@@ -12,6 +12,7 @@ export default function Socials() {
             className={css.link}
             target="_blank"
             referrerPolicy="no-referrer"
+            aria-label={`Go to ${name} page`}
           >
             <Icon
               glyph={name}

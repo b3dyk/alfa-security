@@ -28,18 +28,18 @@
 }
 
 .headerLogo {
-  width: 30px;
+  width: 80px;
   height: 40px;
 
   @media screen and (min-width: 764px) {
-    width: 42px;
+    width: 111px;
     height: 56px;
   }
 
-  @media screen and (min-width: 1260px) {
+  /* @media screen and (min-width: 1260px) {
     width: 60px;
     height: 80px;
-  }
+  } */
 }
 
 .link {

@@ -21,10 +21,10 @@ export default function Header() {
           <div className={css.navWrapper}>
             <Link href="/" className={css.link}>
               <Image
-                src="/images/logo-alfa.png"
+                src="/images/logo-alfa-horizontal.png"
                 alt="logo Alfa"
-                width={60}
-                height={80}
+                width={111}
+                height={56}
                 className={css.headerLogo}
               />
             </Link>
