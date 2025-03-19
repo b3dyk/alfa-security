@@ -11,6 +11,9 @@
   --color-accent-secondary: #f77700;
   --color-bg-error: #f6d3d3;
 
+  --color-border-disabled: #7c2216;
+  --color-text-disabled: #8f8f8f;
+
   --anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -328,6 +331,31 @@ Add the correct display in Chrome and Safari.
 
 summary {
   display: list-item;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--color-background-dark);
+  background-image: none;
+  cursor: pointer;
+
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 5%;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
 }
 
 .highlight {
