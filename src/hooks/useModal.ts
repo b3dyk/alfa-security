@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useScrollLock } from "./useScrollLock";
+import { ModalType } from "@/components/Modal/Modal";
 
 export const useModal = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isFinalModal, setIsFinalModal] = useState(false);
+  const [type, setType] = useState<ModalType>("final");
   const { lockScroll, unlockScroll } = useScrollLock();
 
   useEffect(() => {
@@ -16,24 +17,18 @@ export const useModal = () => {
 
     if (isOpenModal) {
       document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden"; // Блокуємо і `html`
-
+      document.documentElement.style.overflow = "hidden";
       document.body.style.paddingRight = "var(--scrollbar-compensation)";
-      // document.documentElement.style.paddingRight =
-      //   "var(--scrollbar-compensation)";
     } else {
       document.body.style.overflow = "";
-      document.documentElement.style.overflow = ""; // Відновлюємо
-
+      document.documentElement.style.overflow = "";
       document.body.style.paddingRight = `0`;
-      // document.documentElement.style.paddingRight = "0";
     }
     return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
 
       document.body.style.paddingRight = `0`;
-      // document.documentElement.style.paddingRight = "0";
     };
   }, [isOpenModal]);
 
@@ -41,7 +36,8 @@ export const useModal = () => {
     setIsOpenModal((p) => !p);
   }, []);
 
-  const openModal = useCallback(() => {
+  const openModal = useCallback((type: ModalType) => {
+    setType(type);
     setIsOpenModal(true);
   }, []);
 
@@ -49,13 +45,11 @@ export const useModal = () => {
     setIsOpenModal(false);
   }, []);
 
-  const openFinalModal = useCallback(() => {
-    setIsFinalModal(true);
-  }, []);
+  const openFinalModal = useCallback(() => {}, []);
 
   return {
     isOpenModal,
-    isFinalModal,
+    type,
     toggleModal,
     openFinalModal,
     openModal,

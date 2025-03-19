@@ -13,7 +13,7 @@ import { useResize } from "@/hooks/useResize";
 
 export default function Footer() {
   const { isScreenMobile } = useResize();
-  const { isOpenModal, toggleModal, isFinalModal } = useModal();
+  const { isOpenModal, toggleModal, openModal, type } = useModal();
   return (
     <footer className={css.footer}>
       <div className={css.container}>
@@ -48,7 +48,11 @@ export default function Footer() {
           </a>
 
           <Socials />
-          <Button type="button" className={css.footerBtn} onClick={toggleModal}>
+          <Button
+            type="button"
+            className={css.footerBtn}
+            onClick={() => openModal("callback")}
+          >
             Подати заявку
           </Button>
         </div>
@@ -58,7 +62,11 @@ export default function Footer() {
         </div>
       </div>
       {isOpenModal && (
-        <Modal toggleModal={toggleModal} isFinalModal={isFinalModal} />
+        <Modal
+          toggleModal={toggleModal}
+          openModal={openModal}
+          type={type}
+        />
       )}
     </footer>
   );

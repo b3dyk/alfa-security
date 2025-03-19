@@ -2,6 +2,7 @@ import Button from "@/components/Button/Button";
 import css from "./Form.module.css";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { ModalProps } from "@/components/Modal/Modal";
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,17 +17,19 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
     .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, "Невірний формат"),
 });
 
-export default function FormForm({ toggleModal }: { toggleModal: () => void }) {
+export default function FormForm({ openModal }: ModalProps) {
   return (
     <Formik
       initialValues={{
         name: "",
-        phone: "",
+        phone: "+38",
         email: "",
       }}
       validationSchema={DisplayingErrorMessagesSchema}
       onSubmit={(values) => {
-        toggleModal();
+        console.log(values);
+
+        openModal("final");
       }}
     >
       {({ errors, touched }) => (
@@ -64,13 +67,14 @@ export default function FormForm({ toggleModal }: { toggleModal: () => void }) {
                   name="phone"
                   type="tel"
                   placeholder="Телефон"
-                  className={`${css.input} ${
+                  className={`${css.input} ${css.phoneInput} ${
                     errors.phone ? css.errorInput : ""
                   }`}
                 />
                 {errors.phone && touched.phone ? (
                   <div className={css.error}>{errors.phone}</div>
                 ) : null}
+                {/* <span className={css.prefix}>+38</span> */}
               </label>
 
               <label className={css.label}>
