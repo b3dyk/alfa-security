@@ -10,7 +10,7 @@ import { useModal } from "@/hooks/useModal";
 import Modal from "@/components/Modal/Modal";
 
 export default function Prices({ scalable }: PageProps) {
-  const { isOpenModal, openModal, toggleModal } = useModal();
+  const { isOpenModal, openModal, toggleModal, type } = useModal();
   const { isScreenDesktop } = useResize();
 
   return (
@@ -18,8 +18,8 @@ export default function Prices({ scalable }: PageProps) {
       <Container>
         <h2 className={css.title}>Тарифи</h2>
         <div className={css.buttonWrapper}>
-          <Button>СПЛАТИТИ ПОСЛУГУ</Button>
-          <Button main={false} onClick={openModal}>
+          <Button onClick={() => openModal("pay")}>СПЛАТИТИ ПОСЛУГУ</Button>
+          <Button main={false} onClick={() => openModal("callback")}>
             ПОДАТИ ЗАЯВКУ
           </Button>
         </div>
@@ -41,7 +41,7 @@ export default function Prices({ scalable }: PageProps) {
           ))}
         </ul>
         {isOpenModal && (
-          <Modal toggleModal={toggleModal} isFinalModal={false} />
+          <Modal toggleModal={toggleModal} type={type} openModal={openModal} />
         )}
       </Container>
     </section>

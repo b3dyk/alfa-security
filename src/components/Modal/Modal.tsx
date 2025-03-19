@@ -5,13 +5,18 @@ import { createPortal } from "react-dom";
 import IconButton from "../IconButton/IconButton";
 import css from "./Modal.module.css";
 import FormWindow from "../CallbackForm/components/FormWindow/FormWindow";
+import PayModal from "./components/PayModal/PayModal";
+import FinalModal from "./components/FinalModal/FinalModal";
 
-interface ModalProps {
+export type ModalType = "callback" | "pay" | "final";
+
+export interface ModalProps {
   toggleModal: () => void;
-  isFinalModal: boolean;
+  openModal: (type: ModalType) => void;
+  type?: ModalType;
 }
 
-export default function Modal({ toggleModal, isFinalModal }: ModalProps) {
+export default function Modal({ toggleModal, openModal, type }: ModalProps) {
   const [mounted, setMounted] = useState(false);
   const [portalRoot, setPortalRoot] = useState<Element | null>(null);
 
@@ -19,6 +24,19 @@ export default function Modal({ toggleModal, isFinalModal }: ModalProps) {
     setPortalRoot(document.getElementById("portal-root"));
     setMounted(true);
   }, []);
+
+  const selectedModal = () => {
+    switch (type) {
+      case "callback":
+        return <FormWindow toggleModal={toggleModal} openModal={openModal} />;
+
+      case "pay":
+        return <PayModal toggleModal={toggleModal} openModal={openModal} />;
+
+      case "final":
+        return <FinalModal toggleModal={toggleModal} />;
+    }
+  };
 
   if (!mounted || !portalRoot) return null;
 
@@ -37,7 +55,7 @@ export default function Modal({ toggleModal, isFinalModal }: ModalProps) {
           onClick={toggleModal}
           className={css.iconClose}
         />
-        {isFinalModal ? <p>Final</p> : <FormWindow toggleModal={toggleModal} />}
+        {selectedModal()}
       </div>
     </div>,
     portalRoot
