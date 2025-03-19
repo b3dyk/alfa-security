@@ -8,24 +8,24 @@ import { useModal } from "@/hooks/useModal";
 import Modal from "@/components/Modal/Modal";
 
 export default function Services({ scalable }: PageProps) {
-  const { isOpenModal, openModal, toggleModal } = useModal();
+  const { isOpenModal, openModal, toggleModal, type } = useModal();
 
   return (
     <section className={css.section}>
       <Container>
         <h2 className={css.title}>ПОСЛУГИ</h2>
         <div className={css.btnWrapper}>
-          <Button onClick={openModal}>ПОДАТИ ЗАЯВКУ</Button>
+          <Button onClick={() => openModal("callback")}>ПОДАТИ ЗАЯВКУ</Button>
         </div>
         <ul className={css.list}>
-          {scalable.reverse().map(({ id, title }) => (
+          {scalable.map(({ id, title }) => (
             <li key={id} className={css.item}>
               <p>{title}</p>
             </li>
           ))}
         </ul>
         {isOpenModal && (
-          <Modal toggleModal={toggleModal} isFinalModal={false} />
+          <Modal toggleModal={toggleModal} openModal={openModal} type={type} />
         )}
       </Container>
     </section>
