@@ -7,55 +7,32 @@ const SCREEN = {
 };
 
 export const useResize = () => {
-  const getWindowSize = (): { width: number; height: number } => {
-    if (typeof window === "undefined") return { width: 0, height: 0 };
+  const isClient = typeof window !== "undefined";
 
-    const { innerWidth: width, innerHeight: height } = window;
-    return { width, height };
-  };
+  const getWindowSize = () => ({
+    width: isClient ? window.innerWidth : SCREEN.DESKTOP,
+    height: isClient ? window.innerHeight : 0,
+  });
 
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  const handleWindowResize = () => setWindowSize(getWindowSize());
-  const throttledHandleWindowResize = useThrottle(handleWindowResize, 1000);
+  const [windowSize, setWindowSize] = useState(getWindowSize);
+  const throttledHandleWindowResize = useThrottle(
+    () => setWindowSize(getWindowSize()),
+    1000
+  );
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!isClient) return;
 
     window.addEventListener("resize", throttledHandleWindowResize);
-
     return () =>
       window.removeEventListener("resize", throttledHandleWindowResize);
   }, [throttledHandleWindowResize]);
 
-  //==============================================================================================
-  // const [width, setWidth] = useState<number>(window.innerWidth);
-
-  // useEffect(
-  //   () => {
-  //     // if (typeof window !== "undefined") {
-  //     //   const handleResize = (event: UIEvent) => {
-  //     //     if (event.target instanceof Window) {
-  //     //       setWidth(event.target.innerWidth);
-  //     //     }
-  //     //   };
-
-  //     //   window.addEventListener("resize", handleResize);
-  //     //   return () => {
-  //     //     window.removeEventListener("resize", handleResize);
-  //     //   };
-  //     // }
-
-  //   },
-  //   [
-  //     width
-  //   ]
-  // );
-  //=================================================================================================
   return {
     windowSize,
     isScreenMobile: windowSize.width < SCREEN.TABLET,
-    isScreenTablet: windowSize.width >= SCREEN.TABLET,
+    isScreenTablet:
+      windowSize.width >= SCREEN.TABLET && windowSize.width < SCREEN.DESKTOP,
     isScreenDesktop: windowSize.width >= SCREEN.DESKTOP,
   };
 };
