@@ -1,39 +1,27 @@
+import { Formik, Form, Field } from "formik";
 import Button from "@/components/Button/Button";
 import css from "./Form.module.css";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
 import { ModalProps } from "@/components/Modal/Modal";
-
-const DisplayingErrorMessagesSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Ім'я закоротке")
-    .max(50, "Ім'я задовге")
-    .required("Введіть ім'я"),
-  phone: Yup.string()
-    .matches(/^\+380\d{9}$/, "Невірний формат (+380XXXXXXX)")
-    .required("Номер обов'язковий"),
-  email: Yup.string()
-    .email("Некоректний email")
-    .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, "Невірний формат"),
-});
+import { useSendingForm } from "./hooks/useSendingForm";
+import Loader from "@/components/Loader/Loader";
 
 export default function FormForm({ openModal }: ModalProps) {
+  const {
+    initValues,
+    form,
+    isLoading,
+    handleSubmit,
+    DisplayingErrorMessagesSchema,
+  } = useSendingForm(openModal);
+
   return (
     <Formik
-      initialValues={{
-        name: "",
-        phone: "+38",
-        email: "",
-      }}
+      initialValues={initValues}
       validationSchema={DisplayingErrorMessagesSchema}
-      onSubmit={(values) => {
-        console.log(values);
-
-        openModal("final");
-      }}
+      onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
-        <Form className={css.form}>
+        <Form className={css.form} ref={form}>
           <div
             className={css.formGroup}
             role="group"
@@ -48,7 +36,6 @@ export default function FormForm({ openModal }: ModalProps) {
             </p>
             <div className={css.fieldWrapper}>
               <label className={css.label}>
-                {/* <span>Ім'я</span> */}
                 <Field
                   name="name"
                   placeholder="Ім'я"
@@ -62,7 +49,6 @@ export default function FormForm({ openModal }: ModalProps) {
               </label>
 
               <label className={css.label}>
-                {/* <span>Телефон</span> */}
                 <Field
                   name="phone"
                   type="tel"
@@ -74,11 +60,9 @@ export default function FormForm({ openModal }: ModalProps) {
                 {errors.phone && touched.phone ? (
                   <div className={css.error}>{errors.phone}</div>
                 ) : null}
-                {/* <span className={css.prefix}>+38</span> */}
               </label>
 
               <label className={css.label}>
-                {/* <span>Email</span> */}
                 <Field
                   name="email"
                   type="email"
@@ -93,52 +77,9 @@ export default function FormForm({ openModal }: ModalProps) {
               </label>
             </div>
           </div>
-          <Button type="submit">Відправити</Button>
+          <Button type="submit">{isLoading ? <Loader /> : "Відправити"}</Button>
         </Form>
       )}
-      {/* <form className={css.form}>
-        <div
-          className={css.formGroup}
-          role="group"
-          aria-labelledby="callback-form"
-        >
-          <h3 className={css.formTitle} id="callback-form">
-            ЗВОРОТНИЙ ЗВ’ЯЗОК
-          </h3>
-          <p className={css.formDesc}>
-            Залишились питання чи хочете замовити послугу? Введіть ваші
-            контактні дані та ми вам зателефонуємо
-          </p>
-          <input
-            className={css.input}
-            type="text"
-            name="name"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            placeholder="Ваше ім'я"
-            required
-          />
-          <input
-            className={css.input}
-            type="tel"
-            name="phone"
-            value={formik.values.phone}
-            onChange={formik.handleChange}
-            placeholder="Телефон"
-            required
-          />
-          <input
-            className={css.input}
-            type="email"
-            name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            placeholder="Email"
-            required
-          />
-        </div>
-        <Button type="submit">Відправити</Button>
-      </form> */}
     </Formik>
   );
 }
