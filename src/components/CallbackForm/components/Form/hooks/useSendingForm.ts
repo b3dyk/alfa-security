@@ -4,6 +4,14 @@ import emailjs from "@emailjs/browser";
 import { ModalType } from "@/components/Modal/Modal";
 import { FormikHelpers } from "formik";
 
+const publicKey = process.env.EMAILJS_PUBLIC_KEY ?? "";
+const templateId = process.env.EMAILJS_TEMPLATE_ID ?? "";
+const serviceId = process.env.EMAILJS_SERVICE_ID ?? "";
+
+if (!publicKey || !templateId || !serviceId) {
+  throw new Error("Missing environment variables for EmailJS");
+}
+
 export const useSendingForm = (openModal: (type: ModalType) => void) => {
   const initValues = {
     name: "",
@@ -34,14 +42,17 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
     setIsLoading(true);
 
     emailjs
-      .sendForm("service_0quxlpt", "template_wymr4rn", form.current, {
-        publicKey: "QIrRBLONyCqnIPAdh",
+      .sendForm(serviceId, templateId, form.current, {
+        publicKey: publicKey,
       })
       .then(() => {
         actions.resetForm();
         openModal("final");
       })
-      .catch(console.log)
+      .catch((error) => {
+        console.error(error);
+        openModal("error");
+      })
       .finally(() => setIsLoading(false));
   };
 

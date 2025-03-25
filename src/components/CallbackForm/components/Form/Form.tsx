@@ -53,6 +53,7 @@ export default function FormForm({ openModal }: ModalProps) {
                   name="phone"
                   type="tel"
                   placeholder="Телефон"
+                  maxLength="13"
                   className={`${css.input} ${css.phoneInput} ${
                     errors.phone ? css.errorInput : ""
                   }`}
