@@ -8,9 +8,9 @@ const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
 
-if (!publicKey || !templateId || !serviceId) {
-  throw new Error("Missing environment variables for EmailJS");
-}
+// if (!publicKey || !templateId || !serviceId) {
+//   throw new Error("Missing environment variables for EmailJS");
+// }
 
 export const useSendingForm = (openModal: (type: ModalType) => void) => {
   const initValues = {
