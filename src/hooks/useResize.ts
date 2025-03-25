@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useThrottle from "./useThrottle";
 
 const SCREEN = {
@@ -9,10 +9,13 @@ const SCREEN = {
 export const useResize = () => {
   const isClient = typeof window !== "undefined";
 
-  const getWindowSize = () => ({
-    width: isClient ? window.innerWidth : SCREEN.DESKTOP,
-    height: isClient ? window.innerHeight : 0,
-  });
+  const getWindowSize = useCallback(
+    () => ({
+      width: isClient ? window.innerWidth : SCREEN.DESKTOP,
+      height: isClient ? window.innerHeight : 0,
+    }),
+    [isClient]
+  );
 
   const [windowSize, setWindowSize] = useState(getWindowSize);
   const throttledHandleWindowResize = useThrottle(
@@ -23,9 +26,9 @@ export const useResize = () => {
   useEffect(() => {
     if (!isClient) return;
 
-    window.addEventListener("resize", throttledHandleWindowResize);
-    return () =>
-      window.removeEventListener("resize", throttledHandleWindowResize);
+    const handleResize = () => throttledHandleWindowResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [throttledHandleWindowResize]);
 
   return {
