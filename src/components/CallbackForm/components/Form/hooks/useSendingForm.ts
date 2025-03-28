@@ -29,6 +29,14 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
   });
 
   useEffect(() => {
+    if (
+      !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
+      !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+      !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    ) {
+      throw new Error("❌ Missing environment variables for EmailJS");
+    }
+
     setKeys({
       publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "",
       templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
