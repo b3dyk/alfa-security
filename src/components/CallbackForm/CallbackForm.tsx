@@ -7,10 +7,18 @@ import css from "./CallbackForm.module.css";
 import FormWindow from "./components/FormWindow/FormWindow";
 import { useModal } from "@/hooks/useModal";
 import Modal from "../Modal/Modal";
+import { useEffect, useState } from "react";
 
 export default function CallbackForm() {
   const { isScreenMobile } = useResize();
   const { isOpenModal, openModal, toggleModal, type } = useModal();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <section className={css.section}>
@@ -20,11 +28,7 @@ export default function CallbackForm() {
       <Container>
         <FormWindow toggleModal={toggleModal} openModal={openModal} />
         {isOpenModal && (
-          <Modal
-            toggleModal={toggleModal}
-            type={type}
-            openModal={openModal}
-          />
+          <Modal toggleModal={toggleModal} type={type} openModal={openModal} />
         )}
       </Container>
     </section>

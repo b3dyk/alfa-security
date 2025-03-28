@@ -7,8 +7,9 @@ import css from "./Modal.module.css";
 import FormWindow from "../CallbackForm/components/FormWindow/FormWindow";
 import PayModal from "./components/PayModal/PayModal";
 import FinalModal from "./components/FinalModal/FinalModal";
+import ErrorModal from "./components/ErrorModal/ErrorModal";
 
-export type ModalType = "callback" | "pay" | "final";
+export type ModalType = "callback" | "pay" | "final" | "error";
 
 export interface ModalProps {
   toggleModal: () => void;
@@ -35,6 +36,9 @@ export default function Modal({ toggleModal, openModal, type }: ModalProps) {
 
       case "final":
         return <FinalModal toggleModal={toggleModal} />;
+
+      case "error":
+        return <ErrorModal toggleModal={toggleModal} />;
     }
   };
 

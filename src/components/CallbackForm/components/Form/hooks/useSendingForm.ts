@@ -1,8 +1,16 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import { ModalType } from "@/components/Modal/Modal";
 import { FormikHelpers } from "formik";
+
+// const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+// const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+// const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+
+// if (!publicKey || !templateId || !serviceId) {
+//   throw new Error("Missing environment variables for EmailJS");
+// }
 
 export const useSendingForm = (openModal: (type: ModalType) => void) => {
   const initValues = {
@@ -13,6 +21,28 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
 
   const form = useRef<HTMLFormElement | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  // const [keys, setKeys] = useState({
+  //   publicKey: "",
+  //   templateId: "",
+  //   serviceId: "",
+  // });
+
+  // useEffect(() => {
+  //   if (
+  //     !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
+  //     !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+  //     !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  //   ) {
+  //     throw new Error("❌ Missing environment variables for EmailJS");
+  //   }
+
+  //   setKeys({
+  //     publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "",
+  //     templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+  //     serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+  //   });
+  // }, []);
 
   const handleSubmit = (
     values: {
@@ -41,7 +71,10 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
         actions.resetForm();
         openModal("final");
       })
-      .catch(console.log)
+      .catch((error) => {
+        console.error(error);
+        openModal("error");
+      })
       .finally(() => setIsLoading(false));
   };
 

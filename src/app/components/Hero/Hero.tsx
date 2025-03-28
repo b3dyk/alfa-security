@@ -15,6 +15,14 @@ import { useEffect, useState } from "react";
 export default function Hero() {
   const { isOpenModal, toggleModal, openModal, type } = useModal();
   const { isScreenMobile } = useResize();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <section className={css.heroSection}>
       <Container>
@@ -58,56 +66,3 @@ export default function Hero() {
     </section>
   );
 }
-
-// export default function Hero() {
-//   const { isOpenModal, toggleModal, openModal, type } = useModal();
-//   const { isScreenMobile } = useResize();
-//   const [isClient, setIsClient] = useState(false);
-
-//   useEffect(() => {
-//     setIsClient(true);
-//   }, []);
-
-//   return (
-//     <section className={css.heroSection}>
-//       <Container>
-//         <div className={css.heroWrapper}>
-//           <div className={css.textWrapper}>
-//             <h2 className={css.subtitle}>ОХОРОННА КОМПАНІЯ</h2>
-//             {isClient && isScreenMobile ? (
-//               <Image
-//                 src="/images/logo-alfa.png"
-//                 alt="Logo Alfa"
-//                 width={172}
-//                 height={228}
-//                 className={css.mobileLogo}
-//               />
-//             ) : (
-//               <h1 className={css.title}>ALFA SECURITY</h1>
-//             )}
-
-//             <p className={css.moto}>
-//               Надійність перевірена роками, безпека гарантована нами
-//             </p>
-//             <Button type="button" onClick={() => openModal("callback")}>
-//               Подати заявку
-//             </Button>
-//           </div>
-//           {isClient && !isScreenMobile && (
-//             <Image
-//               src="/images/logo-alfa.png"
-//               alt="Logo Alfa"
-//               width={170}
-//               height={225}
-//             />
-//           )}
-//           <Icon glyph="heroNewPolygon" className={css.polygon} />
-//         </div>
-//       </Container>
-//       <AuctionCards />
-//       {isOpenModal && (
-//         <Modal toggleModal={toggleModal} openModal={openModal} type={type} />
-//       )}
-//     </section>
-//   );
-// }

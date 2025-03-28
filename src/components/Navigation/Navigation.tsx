@@ -12,9 +12,7 @@ interface INavigation {
 
 export default function Navigation({ type, handleMenu }: INavigation) {
   const css = styles[type];
-
   const pathname = usePathname();
-
   return (
     <nav>
       <ul className={css.navList}>
@@ -22,8 +20,9 @@ export default function Navigation({ type, handleMenu }: INavigation) {
           <li key={id} className={css.navListItem}>
             <Link
               href={path}
-              className={`${css.navListItemLink}
-                ${pathname === path && css.active}`}
+              className={`${css.navListItemLink} ${
+                pathname === path ? css.active : ""
+              }`}
               onClick={handleMenu}
             >
               {name}

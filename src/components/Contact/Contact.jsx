@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import css from "./Contact.module.css";
 import { Icon } from "../Icon/Icon";
 import PhonesList from "../PhonesList/PhonesList";
@@ -9,6 +9,15 @@ import { useResize } from "@/hooks/useResize";
 export default function Contact() {
   const [hidden, setHidden] = useState(true);
   const { isScreenMobile } = useResize();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  if (typeof window === "undefined") return null;
 
   return (
     <div className={css.contactWrapper}>
