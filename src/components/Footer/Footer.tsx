@@ -10,10 +10,20 @@ import { useModal } from "@/hooks/useModal";
 import Modal from "../Modal/Modal";
 import Socials from "../Socials/Socials";
 import { useResize } from "@/hooks/useResize";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const { isScreenMobile } = useResize();
   const { isOpenModal, toggleModal, openModal, type } = useModal();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <footer className={css.footer}>
       <div className={css.container}>
@@ -62,11 +72,7 @@ export default function Footer() {
         </div>
       </div>
       {isOpenModal && (
-        <Modal
-          toggleModal={toggleModal}
-          openModal={openModal}
-          type={type}
-        />
+        <Modal toggleModal={toggleModal} openModal={openModal} type={type} />
       )}
     </footer>
   );

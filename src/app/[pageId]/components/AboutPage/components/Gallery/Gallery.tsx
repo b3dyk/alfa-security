@@ -5,15 +5,14 @@ import { useKeenSlider } from "keen-slider/react";
 import css from "./Gallery.module.css";
 import { useResize } from "@/hooks/useResize";
 import Container from "@/components/Container/Container";
-import {
-  ABOUT_GALLERY,
-  ABOUT_GALLERY_MOB,
-} from "../../../../../../../public/images/gallery";
+import { ABOUT_GALLERY } from "../../../../../../../public/images/gallery";
 import { Icon } from "@/components/Icon/Icon";
 import "keen-slider/keen-slider.min.css";
+import { useEffect, useState } from "react";
 
 export default function Gallery() {
-  const { isScreenMobile, isScreenDesktop } = useResize();
+  const { isScreenMobile } = useResize();
+  const [isMounted, setIsMounted] = useState(false);
 
   const [sliderRef, slider] = useKeenSlider<HTMLUListElement>({
     mode: "free-snap",
@@ -26,7 +25,11 @@ export default function Gallery() {
     },
   });
 
-  const slidesToRender = isScreenMobile ? ABOUT_GALLERY_MOB : ABOUT_GALLERY;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <section className={css.section}>
@@ -40,9 +43,14 @@ export default function Gallery() {
           <Icon glyph="arrow" />
         </button>
         <ul ref={sliderRef} className={`keen-slider ${css.cardList}`}>
-          {slidesToRender.map(({ src, width, height }) => (
+          {ABOUT_GALLERY.map(({ src }) => (
             <li key={src} className={`keen-slider__slide ${css.cardItem}`}>
-              <Image src={src} alt="card item" width={width} height={height} />
+              <Image
+                src={src}
+                alt="card item"
+                width={isScreenMobile ? 340 : 800}
+                height={isScreenMobile ? 255 : 600}
+              />
             </li>
           ))}
         </ul>
