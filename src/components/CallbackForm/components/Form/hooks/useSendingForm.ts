@@ -22,27 +22,27 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
   const form = useRef<HTMLFormElement | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [keys, setKeys] = useState({
-    publicKey: "",
-    templateId: "",
-    serviceId: "",
-  });
+  // const [keys, setKeys] = useState({
+  //   publicKey: "",
+  //   templateId: "",
+  //   serviceId: "",
+  // });
 
-  useEffect(() => {
-    if (
-      !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
-      !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
-      !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-    ) {
-      throw new Error("❌ Missing environment variables for EmailJS");
-    }
+  // useEffect(() => {
+  //   if (
+  //     !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ||
+  //     !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+  //     !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  //   ) {
+  //     throw new Error("❌ Missing environment variables for EmailJS");
+  //   }
 
-    setKeys({
-      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "",
-      templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
-      serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
-    });
-  }, []);
+  //   setKeys({
+  //     publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "",
+  //     templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+  //     serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+  //   });
+  // }, []);
 
   const handleSubmit = (
     values: {
@@ -61,13 +61,11 @@ export const useSendingForm = (openModal: (type: ModalType) => void) => {
       return;
     }
 
-    const { publicKey, serviceId, templateId } = keys;
-
     setIsLoading(true);
 
     emailjs
-      .sendForm(serviceId, templateId, form.current, {
-        publicKey,
+      .sendForm("service_0quxlpt", "template_wymr4rn", form.current, {
+        publicKey: "QIrRBLONyCqnIPAdh",
       })
       .then(() => {
         actions.resetForm();
